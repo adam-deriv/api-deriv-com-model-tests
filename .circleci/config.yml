@@ -1,8 +1,13 @@
-version: 2
+version: 2.1
+workflows:
+  my-workflow:
+    jobs:
+      - build:
+          context:
+            - deriv
+
 jobs:
   build:
-    environment:
-      CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
     docker:
     - image: testim/docker-cli
     steps:
