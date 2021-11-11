@@ -1,0 +1,16 @@
+{
+  "name": "model-based-deriv",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "test": "cypress open",
+    "cypress": "cypress run",
+    "cypress:open": "cypress open",
+    "cypress:chrome": "cypress open --browser chrome"
+  },
+  "devDependencies": {
+    "@xstate/test": "^0.4.2",
+    "cypress": "9.0.0",
+    "xstate": "^4.16.2"
+  }
+}

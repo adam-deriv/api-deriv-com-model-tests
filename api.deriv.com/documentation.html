@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)https://api.deriv.com/docs/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript">
+    if (self === top) {
+      var antiClickjack = document.getElementById("antiClickjack");
+      antiClickjack.parentNode.removeChild(antiClickjack);
+    } else {
+      top.location = self.location;
+    }
+  </script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Build your own trading platform, powered by the Deriv API. We use WebSockets for fast, two-way messaging between your apps and our trading services.">
+<link href="https://api.deriv.com/img/deriv.png" rel="icon" sizes="96x96" type="image/png">
+<link rel="preconnect" href="https://fonts.gstatic.com/">
+<link rel="stylesheet" href="./documentation_files/css2" as="style" onload="this.onload=null;this.rel=&#39;stylesheet&#39;">
+<noscript><link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap"
+  /></noscript>
+<link rel="stylesheet" href="./documentation_files/css" as="style" onload="this.onload=null;this.rel=&#39;stylesheet&#39;">
+<noscript><link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap"
+  /></noscript>
+<link rel="stylesheet" href="./documentation_files/docson.css">
+<link rel="stylesheet" href="./documentation_files/main.css">
+<link rel="stylesheet" href="./documentation_files/select2.min.css">
+<script src="./documentation_files/rainbow.js"></script>
+<script src="./documentation_files/generic.js"></script>
+<script src="./documentation_files/javascript.js"></script>
+<script src="./documentation_files/coffeescript.js"></script>
+<script src="./documentation_files/csharp.js"></script>
+<script src="./documentation_files/go.js"></script>
+<script src="./documentation_files/java.js"></script>
+
+<script src="./documentation_files/php.js"></script>
+<script src="./documentation_files/ruby.js"></script>
+<script src="./documentation_files/python.js"></script>
+
+<script src="./documentation_files/binary-live-api.js"></script>
+<script src="./documentation_files/require.js"></script>
+<title>Deriv.com API</title>
+<link rel="canonical" href="https://developers.deriv.com/docs/">
+<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/lib/jquery.js" src="./documentation_files/jquery.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/docson/docson.js" src="./documentation_files/docson.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/lib/select2.min.js" src="./documentation_files/select2.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/lib/handlebars.js" src="./documentation_files/handlebars.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/lib/highlight.js" src="./documentation_files/highlight.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/lib/jsonpointer.js" src="./documentation_files/jsonpointer.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/lib/marked.js" src="./documentation_files/marked.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/lib/traverse.js" src="./documentation_files/traverse.js"></script></head>
+<body>
+<div id="main-nav" class="nav">
+<div class="top-nav flex-container">
+<div class="top-nav-container">
+<a href="https://deriv.com/">Deriv website</a>
+<a href="https://deriv.com/about">About us</a>
+<a href="https://deriv.com/contact-us">Contact us</a>
+</div>
+</div>
+<header>
+<div class="header-container">
+<img id="hamburger" alt="Hamburger menu" src="./documentation_files/hamburger_menu.svg" width="16" height="16">
+<a class="flex-container" href="https://api.deriv.com/">
+<img class="logo" alt="Deriv Logo" src="./documentation_files/deriv.svg" width="180" height="73">
+<h1 class="branding">API</h1>
+</a>
+<nav id="navbar" class="flex-container navbar">
+<a id="" href="https://api.deriv.com/">Home</a>
+<a id="docs" href="https://api.deriv.com/docs/" class="selected">Documentation</a>
+<a id="playground" href="https://api.deriv.com/playground/">API Playground</a>
+</nav>
+</div>
+</header>
+</div>
+<section id="canvas-menu" class="off-canvas-menu">
+<div class="menu-container">
+<div id="home" class="menu-wrapper">
+<a href="https://api.deriv.com/">Home</a>
+</div>
+<div class="menu-wrapper">
+<div id="doc-menu-header" class="menu-header">
+Documentation
+<img class="menu-button" src="./documentation_files/arrow_down.svg" width="16" height="16" alt="expand">
+</div>
+<div class="menu-panel show-dropdown">
+<a id="quickstart" href="https://api.deriv.com/docs/" class="selected">Quickstart</a>
+<a id="app-registration" href="https://api.deriv.com/docs/app-registration/">App Registration</a>
+<a id="api-guide" href="https://api.deriv.com/docs/api-guide/">API Guide</a>
+<a id="faq" href="https://api.deriv.com/docs/faq/">FAQ</a>
+<a id="json-schemas" href="https://api.deriv.com/docs/json-schemas/">JSON Schemas</a>
+<a id="bug-bounty" href="https://api.deriv.com/docs/bug-bounty/">Bug Bounty</a>
+</div>
+</div>
+<div id="playground_link" class="menu-wrapper">
+<a href="https://api.deriv.com/playground/">API Playground</a>
+</div>
+</div>
+</section>
+<div class="main-content">
+<div id="content" class="doc-content">
+<select id="mobile-page-selector">
+<option value="/docs/">Quickstart</option>
+<option value="/docs/app-registration/">App Registration</option>
+<option value="/playground/">API Playground</option>
+<option value="/docs/api-guide/">API Guide</option>
+<option value="/docs/faq/">FAQ</option>
+<option value="/docs/json-schemas/">JSON Schemas</option>
+<option value="/docs/bug-bounty/">Bug Bounty</option>
+</select>
+<div class="page-wrapper documentation">
+<div id="sidebar" class="sidebar-left selected">
+<p class="sidebar-title bold">Deriv API</p>
+<a href="https://api.deriv.com/docs/" class="selected">Quickstart</a>
+<a id="app-registration" href="https://api.deriv.com/docs/app-registration/">App registration</a>
+<a id="playground" href="https://api.deriv.com/playground/">API playground</a>
+<a id="api-guide" href="https://api.deriv.com/docs/api-guide/">API guide</a>
+<a id="faq" href="https://api.deriv.com/docs/faq/">FAQ</a>
+<a id="json-schemas" href="https://api.deriv.com/docs/json-schemas/">JSON Schemas</a>
+<a id="bug-bounty" href="https://api.deriv.com/docs/bug-bounty/">Bug Bounty</a>
+</div>
+<div class="vertical-separator"></div>
+<div class="page-content">
+<h1 class="doc-main-title">Quickstart to Deriv API</h1>
+<div>
+<p>On this page, you'll find code samples in various programming languages showing you how to work
+with the Deriv API to perform some of the most important operations.</p>
+<p>You can find all of the other available calls in the <a href="https://api.deriv.com/playground/">API Playground</a>.</p>
+<h3 class="api-sub-title bold">Before you begin</h3>
+<ul class="bullet">
+<li>Open a <a href="https://deriv.com/">Deriv account</a> (either a demo or real account).</li>
+<li>Create a new token using the <a href="https://app.deriv.com/account/api-token">admin scope</a>.</li>
+<li>Register your app to receive your <b>app_id</b> or use <b>app_id 1089</b> to test Deriv API.</li>
+</ul>
+<h3 class="api-sub-title bold">Setting up your environment</h3>
+<p>Instructions for setting up your environment and running the examples in your desired programming
+language are given as comments in the code samples.</p>
+</div>
+<div class="text-block">
+<h2 class="doc-sub-title">Buy contract</h2>
+<p>A contract is an agreement to buy or sell an asset at an agreed-upon price. This example shows you
+how to buy a contract using Deriv API.</p>
+<div class="card">
+<div class="card-header">
+<p class="card-header-title">
+<select id="demo-buy-contract">
+<option value="javascript">JavaScript</option>
+<option value="csharp">C#</option>
+<option value="php">PHP</option>
+<option value="python">Python</option>
+</select>
+</p>
+<div class="copy-button">
+<img class="copy-button-image" src="./documentation_files/copy.svg" width="16" height="16" alt="copy code icon"> Copy
+</div>
+</div>
+<div class="language-demos">
+<pre data-buy-contract="javascript" class="rainbow" style="display: block;"><span class="comment">/*
+ * This is an example of using JavaScript with NodeJS to buy a contract via the Deriv/Binary API.
+ * This is a simple example where we do not check first if the user has the 
+ * symbol available to buy. To check this you would use the active_symbols call.
+ * To run this example using NodeJS
+ * - Ensure you have NodeJs installed (https://nodejs.org/).
+ * - Save this script to a directory on your computer as `buy_contract.js`.
+ * - Run `npm install ws` to install the websocket library.
+ * - Edit the example and change the app_id and the API token. 
+ * - Then run `node buy_contract.js`.
+ * 
+ * The api token should be from the same account that the contract is to be purchased for.
+ */</span>
+<span class="keyword">const</span> WebSocket <span class="keyword operator">=</span> <span class="function call">require</span>(<span class="string">'ws'</span>);
+
+<span class="comment">// You can register for an app_id here https://developers.deriv.com/docs/app-registration/.</span>
+<span class="keyword">const</span> app_id <span class="keyword operator">=</span> <span class="constant numeric">1089</span>; <span class="comment">// Replace with your app_id or leave as 1089 for testing.</span>
+
+<span class="keyword">const</span> ws <span class="keyword operator">=</span> <span class="keyword">new</span> <span class="function call">WebSocket</span>(<span class="string">'wss://ws.binaryws.com/websockets/v3?app_id='</span> <span class="keyword operator">+</span> app_id);
+
+<span class="comment">// You can get your token here https://app.deriv.com/account/api-token. </span>
+<span class="keyword">const</span> token <span class="keyword operator">=</span> <span class="string">''</span>; <span class="comment">// Replace with your API token.</span>
+
+ws.onopen <span class="keyword operator">=</span> <span class="storage function">function</span> (evt) {
+    ws.<span class="function call">send</span>(JSON.<span class="function call">stringify</span>({ <span class="string">"authorize"</span>: token })) <span class="comment">// First send an authorize call.</span>
+};
+
+ws.onmessage <span class="keyword operator">=</span> <span class="storage function">function</span> (msg) {
+    <span class="keyword">var</span> data <span class="keyword operator">=</span> JSON.<span class="function call">parse</span>(msg.data);
+    <span class="comment">// console.log('Response: %o', data); // Uncomment this to see full response data. </span>
+    <span class="keyword">if</span> (data.error <span class="keyword operator">!</span><span class="keyword operator">=</span><span class="keyword operator">=</span> undefined) {
+        console.<span class="function call">log</span>(data.error.message);
+        ws.<span class="function call">close</span>();
+    } <span class="keyword">else</span> <span class="keyword">if</span> (data.msg_type <span class="keyword operator">=</span><span class="keyword operator">=</span> <span class="string">'authorize'</span>) {
+        <span class="comment">/*
+        * Since we can not ensure calls to websocket are made in order we must wait for 
+        * the response to the authorize call before sending the buy request. 
+        */</span>
+        ws.<span class="function call">send</span>(JSON.<span class="function call">stringify</span>({
+            <span class="string">"buy"</span>: <span class="constant numeric">1</span>,
+            <span class="string">"subscribe"</span>: <span class="constant numeric">1</span>,
+            <span class="string">"price"</span>: <span class="constant numeric">10</span>,
+            <span class="string">"parameters"</span>: { <span class="string">"amount"</span>: <span class="constant numeric">10</span>, <span class="string">"basis"</span>: <span class="string">"stake"</span>, <span class="string">"contract_type"</span>: <span class="string">"CALL"</span>, <span class="string">"currency"</span>: <span class="string">"USD"</span>, <span class="string">"duration"</span>: <span class="constant numeric">1</span>, <span class="string">"duration_unit"</span>: <span class="string">"m"</span>, <span class="string">"symbol"</span>: <span class="string">"R_10"</span> }
+        }));
+    } <span class="keyword">else</span> <span class="keyword">if</span> (data.msg_type <span class="keyword operator">=</span><span class="keyword operator">=</span> <span class="string">'buy'</span>) { <span class="comment">// Our buy request was successful let's print the results. </span>
+        console.<span class="function call">log</span>(<span class="string">"Contract Id "</span> <span class="keyword operator">+</span> data.buy.contract_id <span class="keyword operator">+</span> <span class="string">"\n"</span>);
+        console.<span class="function call">log</span>(<span class="string">"Details "</span> <span class="keyword operator">+</span> data.buy.longcode <span class="keyword operator">+</span> <span class="string">"\n"</span>);
+    } <span class="keyword">else</span> <span class="keyword">if</span> (data.msg_type <span class="keyword operator">=</span><span class="keyword operator">=</span> <span class="string">'proposal_open_contract'</span>) { <span class="comment">// Because we subscribed to the buy request we will receive updates on our open contract. </span>
+        <span class="keyword">var</span> isSold <span class="keyword operator">=</span> data.proposal_open_contract.is_sold;
+        <span class="keyword">if</span> (isSold) { <span class="comment">// If `isSold` is true it means our contract has finished and we can see if we won or not.</span>
+            console.<span class="function call">log</span>(<span class="string">"Contract "</span> <span class="keyword operator">+</span> data.proposal_open_contract.status <span class="keyword operator">+</span> <span class="string">"\n"</span>);
+            console.<span class="function call">log</span>(<span class="string">"Profit "</span> <span class="keyword operator">+</span> data.proposal_open_contract.profit <span class="keyword operator">+</span> <span class="string">"\n"</span>);
+            ws.<span class="function call">close</span>();
+        } <span class="keyword">else</span> { <span class="comment">// We can track the status of our contract as updates to the spot price occur. </span>
+            <span class="keyword">var</span> currentSpot <span class="keyword operator">=</span> data.proposal_open_contract.current_spot;
+            <span class="keyword">var</span> entrySpot <span class="keyword operator">=</span> <span class="constant numeric">0</span>;
+            <span class="keyword">if</span> (typeof (data.proposal_open_contract.entry_tick) <span class="keyword operator">!</span><span class="keyword operator">=</span> <span class="string">'undefined'</span>) {
+                entrySpot <span class="keyword operator">=</span> data.proposal_open_contract.entry_tick;
+            }
+            console.<span class="function call">log</span>(<span class="string">"Entry spot "</span> <span class="keyword operator">+</span> entrySpot <span class="keyword operator">+</span> <span class="string">"\n"</span>);
+            console.<span class="function call">log</span>(<span class="string">"Current spot "</span> <span class="keyword operator">+</span> currentSpot <span class="keyword operator">+</span> <span class="string">"\n"</span>);
+            console.<span class="function call">log</span>(<span class="string">"Difference "</span> <span class="keyword operator">+</span> (currentSpot <span class="keyword operator">-</span> entrySpot) <span class="keyword operator">+</span> <span class="string">"\n"</span>);
+        }
+    }
+};</pre>
+<pre data-buy-contract="csharp" class="rainbow" style="display: none;">using System;
+using System.Text;
+using System.Threading.Tasks;
+using System.Net.WebSockets;
+using System.Threading;
+using System.Net;
+using Newtonsoft.Json.Linq;
+<span class="comment">/*
+ * This is an example of using C# to buy a contract.
+ * This is a simple script as it does not check if the account has access to the
+ * asset before placing the trade. You can use `asset_index` call https://developers.deriv.com/playground/#asset_index to check this.
+ * The example was originally written in dotnet version 5.0.  
+ * It uses the Newtonsoft Json.net Library https://www.newtonsoft.com/json
+ * This can be run on Windows/linux or Mac.
+ *  
+ * To run this example 
+ * - Ensure you have dotnet SDK installed https://dotnet.microsoft.com/download/dotnet. 
+ * - Run `dotnet new console --output buy_contract` In a directory on your computer.
+ * - Then run `dotnet add buy_contract package Newtonsoft.Json`.
+ * - Change to the new buy_contract dir and edit the `Program.cs` file, paste in the contents of this script and save.
+ * - Run `dotnet run --project buy_contract` in the parent directory.
+ * The API token should be from the same account that the contract is to be purchased for.
+ */</span>
+namespace DerivWSDemo
+{
+    <span class="keyword">class</span> DerivWS
+    {
+        <span class="keyword">private</span> ClientWebSocket ws <span class="keyword operator">=</span> <span class="keyword">new</span> <span class="function call">ClientWebSocket</span>();
+        <span class="keyword">private</span> <span class="keyword">string</span> app_id <span class="keyword operator">=</span> <span class="string">"1089"</span>; <span class="comment">// Change this to yor app_id. Get it from here https://developers.deriv.com/docs/app-registration/.</span>
+        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">string</span> token <span class="keyword operator">=</span> <span class="string">""</span>; <span class="comment">// Change this to your token. Get it from here https://app.deriv.com/account/api-token.</span>
+        <span class="keyword">private</span> <span class="keyword">string</span> websocket_url <span class="keyword operator">=</span> <span class="string">"wss://ws.binaryws.com/websockets/v3?app_id="</span>;
+
+        <span class="keyword">public</span> async Task <span class="function call">SendRequest</span>(<span class="keyword">string</span> data)
+        {
+            <span class="keyword">while</span> (<span class="keyword">this</span>.ws.State <span class="keyword operator">=</span><span class="keyword operator">=</span> WebSocketState.Connecting) { };
+            <span class="keyword">if</span> (<span class="keyword">this</span>.ws.State <span class="keyword operator">!</span><span class="keyword operator">=</span> WebSocketState.Open)
+            {
+                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="function call">Exception</span>(<span class="string">"Connection is not open."</span>);
+            }
+            <span class="keyword">var</span> reqAsBytes <span class="keyword operator">=</span> Encoding.UTF8.<span class="function call">GetBytes</span>(data);
+            <span class="keyword">var</span> ticksRequest <span class="keyword operator">=</span> <span class="keyword">new</span> ArraySegment<span class="keyword operator">&lt;</span>byte<span class="keyword operator">&gt;</span>(reqAsBytes);
+            await <span class="keyword">this</span>.ws.<span class="function call">SendAsync</span>(ticksRequest,
+                WebSocketMessageType.Text,
+                <span class="constant language">true</span>,
+                CancellationToken.None);
+            Console.<span class="function call">WriteLine</span>(<span class="string">"The request has been sent: "</span>);
+            Console.<span class="function call">WriteLine</span>(data);
+            Console.<span class="function call">WriteLine</span>(<span class="string">"\r\n \r\n"</span>);
+        }
+
+        <span class="keyword">public</span> async Task <span class="function call">StartListen</span>()
+        {
+            WebSocketReceiveResult result;
+            <span class="keyword">while</span> (<span class="keyword">this</span>.ws.State <span class="keyword operator">=</span><span class="keyword operator">=</span> WebSocketState.Open)
+            {
+                <span class="keyword">var</span> buffer <span class="keyword operator">=</span> <span class="keyword">new</span> ArraySegment<span class="keyword operator">&lt;</span>byte<span class="keyword operator">&gt;</span>(<span class="keyword">new</span> byte[<span class="constant numeric">4096</span>]);
+                result <span class="keyword operator">=</span> await <span class="keyword">this</span>.ws.<span class="function call">ReceiveAsync</span>(<span class="keyword">new</span> ArraySegment<span class="keyword operator">&lt;</span>byte<span class="keyword operator">&gt;</span>(buffer.<span class="keyword">Array</span>), CancellationToken.None);
+                <span class="keyword">if</span> (result.MessageType <span class="keyword operator">=</span><span class="keyword operator">=</span> WebSocketMessageType.Close)
+                {
+                    Console.<span class="function call">WriteLine</span>(<span class="string">"Connection Closed!"</span>);
+                    <span class="keyword">break</span>;
+                }
+                <span class="keyword">else</span>
+                {
+                    <span class="keyword">var</span> str <span class="keyword operator">=</span> Encoding.UTF8.<span class="function call">GetString</span>(buffer.<span class="keyword">Array</span>, <span class="constant numeric">0</span>, result.Count);
+                    <span class="comment">// Console.WriteLine(str); // Uncomment to see full json response.</span>
+                    JObject resultObject <span class="keyword operator">=</span> JObject.<span class="function call">Parse</span>(str);
+                    <span class="comment">/*
+                    * Since we can not ensure calls to websocket are made in order we must wait for 
+                    * the response to the authorize call before sending the buy request. 
+                    */</span>
+                    <span class="keyword">if</span> ((resultObject[<span class="string">"error"</span>] <span class="keyword operator">!</span><span class="keyword operator">=</span> <span class="constant language">null</span>))
+                    {
+                        Console.<span class="function call">WriteLine</span>(resultObject[<span class="string">"error"</span>][<span class="string">"code"</span>]);
+                        Console.<span class="function call">WriteLine</span>(resultObject[<span class="string">"error"</span>][<span class="string">"message"</span>]);
+                    }
+                    <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">string</span>.<span class="function call">Equals</span>((<span class="keyword">string</span>)resultObject[<span class="string">"msg_type"</span>], <span class="string">"authorize"</span>))
+                    {
+                        <span class="keyword">string</span> parameters <span class="keyword operator">=</span> <span class="string">" <span class="constant character escape">\"</span>parameters<span class="constant character escape">\"</span>: { <span class="constant character escape">\"</span>amount<span class="constant character escape">\"</span>: 10, <span class="constant character escape">\"</span>basis<span class="constant character escape">\"</span>: <span class="constant character escape">\"</span>stake<span class="constant character escape">\"</span>, <span class="constant character escape">\"</span>contract_type<span class="constant character escape">\"</span>: <span class="constant character escape">\"</span>CALL<span class="constant character escape">\"</span>, <span class="constant character escape">\"</span>currency<span class="constant character escape">\"</span>: <span class="constant character escape">\"</span>USD<span class="constant character escape">\"</span>, <span class="constant character escape">\"</span>duration<span class="constant character escape">\"</span>: 1, <span class="constant character escape">\"</span>duration_unit<span class="constant character escape">\"</span>: <span class="constant character escape">\"</span>m<span class="constant character escape">\"</span>, <span class="constant character escape">\"</span>symbol<span class="constant character escape">\"</span>: <span class="constant character escape">\"</span>R_10<span class="constant character escape">\"</span> }}"</span>;
+                        <span class="keyword">string</span> data <span class="keyword operator">=</span> <span class="string">"{<span class="constant character escape">\"</span>buy<span class="constant character escape">\"</span>: 1, <span class="constant character escape">\"</span>subscribe<span class="constant character escape">\"</span>: 1, <span class="constant character escape">\"</span>price<span class="constant character escape">\"</span>: 10,"</span> <span class="keyword operator">+</span> parameters;
+                        <span class="keyword">this</span>.<span class="function call">SendRequest</span>(data).<span class="function call">Wait</span>();
+                    }
+                    <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">string</span>.<span class="function call">Equals</span>((<span class="keyword">string</span>)resultObject[<span class="string">"msg_type"</span>], <span class="string">"buy"</span>))
+                    {
+                        Console.<span class="function call">WriteLine</span>(<span class="string">"contract Id {0}"</span>, resultObject[<span class="string">"buy"</span>][<span class="string">"contract_id"</span>]);
+                        Console.<span class="function call">WriteLine</span>(<span class="string">"Details {0}"</span>, resultObject[<span class="string">"buy"</span>][<span class="string">"longcode"</span>]);
+                    }
+                    <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">string</span>.<span class="function call">Equals</span>((<span class="keyword">string</span>)resultObject[<span class="string">"msg_type"</span>], <span class="string">"buy"</span>))
+                    {
+                        Console.<span class="function call">WriteLine</span>(<span class="string">"contract Id {0}"</span>, resultObject[<span class="string">"buy"</span>][<span class="string">"contract_id"</span>]);
+                        Console.<span class="function call">WriteLine</span>(<span class="string">"Details {0}"</span>, resultObject[<span class="string">"buy"</span>][<span class="string">"longcode"</span>]);
+                    }
+                    <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">string</span>.<span class="function call">Equals</span>((<span class="keyword">string</span>)resultObject[<span class="string">"msg_type"</span>], <span class="string">"proposal_open_contract"</span>))
+                    { <span class="comment">// Because we subscribed to the buy request we will receive updates on our open contract. </span>
+                        <span class="keyword">bool</span> isSold <span class="keyword operator">=</span> (<span class="keyword">bool</span>)resultObject[<span class="string">"proposal_open_contract"</span>][<span class="string">"is_sold"</span>];
+                        <span class="keyword">if</span> (isSold)
+                        { <span class="comment">// If `isSold` is true it means our contract has finished and we can see if we won or not.</span>
+                            Console.<span class="function call">WriteLine</span>(<span class="string">"Contract {0}"</span>, resultObject[<span class="string">"proposal_open_contract"</span>][<span class="string">"status"</span>]);
+                            Console.<span class="function call">WriteLine</span>(<span class="string">"Profit {0}"</span>, resultObject[<span class="string">"proposal_open_contract"</span>][<span class="string">"profit"</span>]);
+                            ws.<span class="function call">Abort</span>();
+                            ws.<span class="function call">Dispose</span>();
+                        }
+                        <span class="keyword">else</span>
+                        { <span class="comment">// We can track the status of our contract as updates to the spot price occur. </span>
+                            <span class="keyword">float</span> currentSpot <span class="keyword operator">=</span> (<span class="keyword">float</span>)resultObject[<span class="string">"proposal_open_contract"</span>][<span class="string">"current_spot"</span>];
+                            <span class="keyword">float</span> entrySpot <span class="keyword operator">=</span> <span class="constant numeric">0</span>;
+                            <span class="keyword">if</span> (<span class="keyword operator">!</span><span class="keyword">String</span>.<span class="function call">IsNullOrEmpty</span>((<span class="keyword">string</span>)resultObject[<span class="string">"proposal_open_contract"</span>][<span class="string">"entry_tick"</span>]))
+                            {
+                                entrySpot <span class="keyword operator">=</span> (<span class="keyword">float</span>)resultObject[<span class="string">"proposal_open_contract"</span>][<span class="string">"entry_tick"</span>];
+                            }
+                            Console.<span class="function call">WriteLine</span>(<span class="string">"Entry spot {0}"</span>, entrySpot);
+                            Console.<span class="function call">WriteLine</span>(<span class="string">"Current spot {0}"</span>, currentSpot);
+                            Console.<span class="function call">WriteLine</span>(<span class="string">"Difference {0}"</span>, (currentSpot <span class="keyword operator">-</span> entrySpot));
+                            Console.<span class="function call">WriteLine</span>(<span class="string">"\r\n"</span>);
+                        }
+                    }
+                }
+            }
+        }
+
+        <span class="keyword">public</span> async Task <span class="function call">Connect</span>()
+        {
+            Uri uri <span class="keyword operator">=</span> <span class="keyword">new</span> <span class="function call">Uri</span>(websocket_url <span class="keyword operator">+</span> app_id);
+            Console.<span class="function call">WriteLine</span>(<span class="string">"Prepare to connect to: "</span> <span class="keyword operator">+</span> uri.<span class="function call">ToString</span>());
+            Console.<span class="function call">WriteLine</span>(<span class="string">"\r\n"</span>);
+            <span class="comment">// WebProxy proxyObject = new WebProxy("http://172.30.160.1:1090",true); // These 2 lines allow proxying set the proxy url as needed.</span>
+            <span class="comment">// ws.Options.Proxy = proxyObject;</span>
+            ServicePointManager.SecurityProtocol <span class="keyword operator">=</span> SecurityProtocolType.Tls12 <span class="keyword operator">|</span> SecurityProtocolType.Tls11;
+            await ws.<span class="function call">ConnectAsync</span>(uri, CancellationToken.None);
+            Console.<span class="function call">WriteLine</span>(<span class="string">"The connection is established!"</span>);
+            Console.<span class="function call">WriteLine</span>(<span class="string">"\r\n"</span>);
+        }
+
+        <span class="keyword">static</span> <span class="keyword">void</span> <span class="function call">Main</span>(<span class="keyword">string</span>[] args)
+        {
+            <span class="keyword">var</span> bws <span class="keyword operator">=</span> <span class="keyword">new</span> <span class="function call">DerivWS</span>();
+            bws.<span class="function call">Connect</span>().<span class="function call">Wait</span>();
+            <span class="keyword">string</span> data <span class="keyword operator">=</span> <span class="string">"{ <span class="constant character escape">\"</span>authorize<span class="constant character escape">\"</span>: <span class="constant character escape">\"</span>"</span> <span class="keyword operator">+</span> token <span class="keyword operator">+</span> <span class="string">"<span class="constant character escape">\"</span>}"</span>;
+            bws.<span class="function call">SendRequest</span>(data).<span class="function call">Wait</span>();
+            bws.<span class="function call">StartListen</span>().<span class="function call">Wait</span>();
+        }
+    }
+}</pre>
+<pre data-buy-contract="php" class="rainbow" style="display: none;"><span class="keyword operator">&lt;</span>?php
+<span class="comment">/*
+ * This is an example of using PHP to buy a contract via the Deriv/Binary API.
+ * This is a simple example of buying a contract where we do not check first if the user has the
+ * symbol available to buy. To check this you would use the active_symbols call.
+ * The example uses the ratchetphp/Pawl library.  
+ * To run this example 
+ * - Save it to a new directory as `buy_contract.php`.
+ * - In the new directory download and install composer as explained here https://getcomposer.org/download/.
+ * - Run `php composer.phar require ratchet/pawl`.
+ * - Edit the example and change the app_id and the API token. 
+ * - Then run `php buy_contract.php`.
+ * The api token should be from the same account that the contract is to be purchased for.
+ */</span>
+
+require __DIR__ . <span class="string">'/vendor/autoload.php'</span>;
+
+<span class="comment">// You can register for an app_id here https://developers.deriv.com/docs/app-registration/.</span>
+$myAppId <span class="keyword operator">=</span> <span class="constant numeric">1089</span>; <span class="comment">// Put your app_id here. </span>
+
+<span class="comment">// You can get your token here https://app.deriv.com/account/api-token.</span>
+$token <span class="keyword operator">=</span> <span class="string">''</span>; <span class="comment">// Put the authorization token for the account to buy the contract for here. </span>
+
+\Ratchet\Client\<span class="function call">connect</span>(<span class="string">'wss://ws.binaryws.com/websockets/v3?app_id='</span> . $myAppId)<span class="keyword operator">-</span><span class="keyword operator">&gt;</span><span class="keyword">then</span>(<span class="storage function">function</span> ($conn) use ($token) {
+    $conn<span class="keyword operator">-</span><span class="keyword operator">&gt;</span><span class="function call">on</span>(<span class="string">'message'</span>, <span class="storage function">function</span> ($msg) use ($conn, $token) {
+        <span class="comment">// echo $msg."\n"; Uncomment this to see full JSON return message.</span>
+        $msgPHP <span class="keyword operator">=</span> <span class="function call">json_decode</span>($msg, <span class="constant numeric">1</span>);
+        <span class="keyword">if</span> (<span class="function call">isset</span>($msgPHP[<span class="string">"error"</span>])) {
+            <span class="keyword">echo</span> $msgPHP[<span class="string">"error"</span>][<span class="string">"message"</span>];
+            $conn<span class="keyword operator">-</span><span class="keyword operator">&gt;</span><span class="function call">close</span>();
+        } <span class="keyword">else</span> <span class="keyword">if</span> ($msgPHP[<span class="string">"msg_type"</span>] <span class="keyword operator">=</span><span class="keyword operator">=</span> <span class="string">'authorize'</span>) {  <span class="comment">// We have a successful authorization so we can now buy a contract.</span>
+            <span class="comment">/*
+             * Since there can be no guarantee of the order of the calls when using websocket we need
+             * to check that we have received a reply to the authorize call before sending the buy 
+             * request.
+             */</span>
+            $conn<span class="keyword operator">-</span><span class="keyword operator">&gt;</span><span class="function call">send</span>(<span class="string">'{ "buy":1, "subscribe":1, "price":10, "parameters":{ "amount":10, "basis":"stake", "contract_type":"CALL", "currency":"USD", "duration":1, "duration_unit":"m", "symbol":"R_10" } } '</span>);
+        } <span class="keyword">else</span> <span class="keyword">if</span> ($msgPHP[<span class="string">"msg_type"</span>] <span class="keyword operator">=</span><span class="keyword operator">=</span> <span class="string">'buy'</span>) { <span class="comment">// Our buy request was successful let's print the results. </span>
+            <span class="keyword">echo</span> (<span class="string">"contract Id "</span> . $msgPHP[<span class="string">"buy"</span>][<span class="string">"contract_id"</span>] . <span class="string">"\n"</span>);
+            <span class="keyword">echo</span> (<span class="string">"Details "</span> . $msgPHP[<span class="string">"buy"</span>][<span class="string">"longcode"</span>] . <span class="string">"\n"</span>);
+        } <span class="keyword">else</span> <span class="keyword">if</span> ($msgPHP[<span class="string">"msg_type"</span>] <span class="keyword operator">=</span><span class="keyword operator">=</span> <span class="string">'proposal_open_contract'</span>) { <span class="comment">// Because we subscribed to the buy request we will receive updates on our open contract. </span>
+            $isSold <span class="keyword operator">=</span> $msgPHP[<span class="string">"proposal_open_contract"</span>][<span class="string">"is_sold"</span>];
+            <span class="keyword">if</span> ($isSold) { <span class="comment">// If `isSold` is true it means our contract has finished and we can see if we won or not.</span>
+                <span class="keyword">echo</span> (<span class="string">"Contract "</span> . $msgPHP[<span class="string">"proposal_open_contract"</span>][<span class="string">"status"</span>] . <span class="string">"\n"</span>);
+                <span class="keyword">echo</span> (<span class="string">"Profit "</span> .  $msgPHP[<span class="string">"proposal_open_contract"</span>][<span class="string">"profit"</span>] . <span class="string">"\n"</span>);
+                $conn<span class="keyword operator">-</span><span class="keyword operator">&gt;</span><span class="function call">close</span>();
+            } <span class="keyword">else</span> { <span class="comment">// We can track the status of our contract as updates to the spot price occur. </span>
+                $currentSpot <span class="keyword operator">=</span> $msgPHP[<span class="string">"proposal_open_contract"</span>][<span class="string">"current_spot"</span>];
+                $entrySpot <span class="keyword operator">=</span> <span class="constant numeric">0</span>;
+                <span class="keyword">if</span> (<span class="function call">isset</span>($msgPHP[<span class="string">"proposal_open_contract"</span>][<span class="string">"entry_tick"</span>])) {
+                    $entrySpot <span class="keyword operator">=</span> $msgPHP[<span class="string">"proposal_open_contract"</span>][<span class="string">"entry_tick"</span>];
+                }
+                <span class="keyword">echo</span> (<span class="string">"Entry spot "</span> . $entrySpot . <span class="string">"\n"</span>);
+                <span class="keyword">echo</span> (<span class="string">"Current spot "</span> . $currentSpot . <span class="string">"\n"</span>);
+                <span class="keyword">echo</span> (<span class="string">"Difference "</span> . ($currentSpot <span class="keyword operator">-</span> $entrySpot) . <span class="string">"\n"</span>);
+            }
+        }
+    });
+    $conn<span class="keyword operator">-</span><span class="keyword operator">&gt;</span><span class="function call">send</span>(<span class="string">'{"authorize" : "'</span> . $token . <span class="string">'"}'</span>);
+}, <span class="storage function">function</span> ($e) {
+    <span class="keyword">echo</span> <span class="string">"Could not connect: {$e-&gt;getMessage()}\n"</span>;
+});</pre>
+<pre data-buy-contract="python" class="rainbow" style="display: none;"><span class="comment"># This is an example of using Python to buy a contract via the Deriv/Binary API.</span>
+<span class="comment"># This is a simple example of buying a contract where we do not check first if the user has the</span>
+<span class="comment"># symbol available to buy. To check this you would use the active_symbols call.</span>
+<span class="comment"># The example uses the websocket-client library.</span>
+<span class="comment"># To run this example</span>
+<span class="comment"># - Ensure you have Python installed (https://www.python.org/).</span>
+<span class="comment"># - Copy and save this as a file to a new directory as `buy_contract.py`.</span>
+<span class="comment"># - Run `pip install websocket-client`.</span>
+<span class="comment"># - Edit the example and change the app_id and the API token.</span>
+<span class="comment"># - Then run `python buy_contract.py`.</span>
+<span class="comment"># Note that on some OS's the python command will be python3 and pip will be pip3.</span>
+
+<span class="keyword">import</span> websocket
+<span class="keyword">import</span> json
+
+<span class="comment"># You can register for an app_id here https://developers.deriv.com/docs/app-registration/.</span>
+app_id <span class="keyword operator">=</span> <span class="string">'1089'</span>  <span class="comment"># Replace with your app_id.</span>
+
+<span class="comment"># You can get your token here https://app.deriv.com/account/api-token.</span>
+<span class="comment"># Replace with a token from the account that you wish to buy the contract for.</span>
+token <span class="keyword operator">=</span> <span class="string">''</span>
+
+<span class="keyword">def</span> <span class="function call">on_open</span>(ws):
+    json_data <span class="keyword operator">=</span> json.<span class="function call">dumps</span>({<span class="string">'authorize'</span>: token})
+    ws.<span class="function call">send</span>(json_data)
+
+<span class="keyword">def</span> <span class="function call">on_message</span>(ws, message):
+    data <span class="keyword operator">=</span> json.<span class="function call">loads</span>(message)
+    <span class="comment">#print('Data: %s' % message) # Uncomment this line to see all response data.</span>
+    <span class="keyword">if</span> <span class="string">'error'</span> in data.<span class="function call">keys</span>():
+        <span class="keyword">print</span>(<span class="string">'Error Happened: %s'</span> % message)
+        <span class="comment"># With Websockets we can not control the order things are processed in so we need</span>
+        <span class="comment"># to ensure that we have received a response to authorize before we continue.</span>
+    elif data[<span class="string">"msg_type"</span>] <span class="keyword operator">=</span><span class="keyword operator">=</span> <span class="string">'authorize'</span>:
+        <span class="keyword">print</span>(<span class="string">"Authorized OK, so now buy Contract"</span>)
+        json_data1 <span class="keyword operator">=</span> json.<span class="function call">dumps</span>({<span class="string">"buy"</span>: <span class="constant numeric">1</span>, <span class="string">"subscribe"</span>: <span class="constant numeric">1</span>, <span class="string">"price"</span>: <span class="constant numeric">10</span>, <span class="string">"parameters"</span>: {
+                                <span class="string">"amount"</span>: <span class="constant numeric">10</span>, <span class="string">"basis"</span>: <span class="string">"stake"</span>, <span class="string">"contract_type"</span>: <span class="string">"CALL"</span>, <span class="string">"currency"</span>: <span class="string">"USD"</span>, <span class="string">"duration"</span>: <span class="constant numeric">1</span>, <span class="string">"duration_unit"</span>: <span class="string">"m"</span>, <span class="string">"symbol"</span>: <span class="string">"R_10"</span>}})
+        ws.<span class="function call">send</span>(json_data1)
+
+    <span class="comment"># Our buy request was successful let's print the results.</span>
+    elif data[<span class="string">"msg_type"</span>] <span class="keyword operator">=</span><span class="keyword operator">=</span> <span class="string">'buy'</span>:
+        <span class="keyword">print</span>(<span class="string">"contract Id  %s "</span> %  data[<span class="string">"buy"</span>][<span class="string">"contract_id"</span>] )
+        <span class="keyword">print</span>(<span class="string">"Details %s "</span> % data[<span class="string">"buy"</span>][<span class="string">"longcode"</span>] )
+    
+    <span class="comment"># Because we subscribed to the buy request we will receive updates on our open contract.</span>
+    elif data[<span class="string">"msg_type"</span>] <span class="keyword operator">=</span><span class="keyword operator">=</span> <span class="string">'proposal_open_contract'</span>:
+      isSold <span class="keyword operator">=</span> <span class="keyword">bool</span>(data[<span class="string">"proposal_open_contract"</span>][<span class="string">"is_sold"</span>])
+      <span class="comment"># If `isSold` is true it means our contract has finished and we can see if we won or not.</span>
+      <span class="keyword">if</span> isSold:
+          <span class="keyword">print</span>(<span class="string">"Contract %s "</span> % data[<span class="string">"proposal_open_contract"</span>][<span class="string">"status"</span>] )
+          <span class="keyword">print</span>(<span class="string">"Profit %s "</span> %  data[<span class="string">"proposal_open_contract"</span>][<span class="string">"profit"</span>] )
+          ws.<span class="function call">close</span>()
+      <span class="keyword">else</span>:  <span class="comment"># We can track the status of our contract as updates to the spot price occur.</span>
+          currentSpot <span class="keyword operator">=</span> data[<span class="string">"proposal_open_contract"</span>][<span class="string">"current_spot"</span>]
+          entrySpot <span class="keyword operator">=</span> <span class="constant numeric">0</span>
+          <span class="keyword">if</span> data[<span class="string">"proposal_open_contract"</span>][<span class="string">"entry_tick"</span>] <span class="keyword operator">!</span><span class="keyword operator">=</span> None:
+              entrySpot <span class="keyword operator">=</span> data[<span class="string">"proposal_open_contract"</span>][<span class="string">"entry_tick"</span>]
+          
+          <span class="keyword">print</span> (<span class="string">"Entry spot %s"</span> % entrySpot )
+          <span class="keyword">print</span> (<span class="string">"Current spot %s"</span> % currentSpot )
+          <span class="keyword">print</span> (<span class="string">"Difference %s"</span> % (currentSpot <span class="keyword operator">-</span> entrySpot) )
+           
+<span class="keyword">if</span> __name__ <span class="keyword operator">=</span><span class="keyword operator">=</span> <span class="string">"__main__"</span>:
+    apiUrl <span class="keyword operator">=</span> <span class="string">"wss://ws.binaryws.com/websockets/v3?app_id="</span><span class="keyword operator">+</span>app_id
+    ws <span class="keyword operator">=</span> websocket.<span class="function call">WebSocketApp</span>(apiUrl, on_message<span class="keyword operator">=</span>on_message, on_open<span class="keyword operator">=</span>on_open)
+    ws.<span class="function call">run_forever</span>()</pre>
+</div>
+</div>
+</div>
+<div class="text-block">
+<h2 class="doc-sub-title">Ticks</h2>
+<p>A tick is a measure of minimum upward or downward movement in the price of a trading
+commodity. This example shows you how to collect ticks for your trading app using Deriv’s API.</p>
+<div class="card">
+<div class="card-header">
+<p class="card-header-title">
+<select id="demo-ticks">
+<option value="javascript">JavaScript</option>
+<option value="csharp">C#</option>
+<option value="php">PHP</option>
+<option value="python">Python</option>
+</select>
+</p>
+<div class="copy-button">
+<img class="copy-button-image" src="./documentation_files/copy.svg" width="16" height="16" alt="copy code icon"> Copy
+</div>
+</div>
+<div class="language-demos">
+<pre data-ticks="javascript" class="rainbow" style="display: block;"><span class="comment">/*
+ * This is an example of using JavaScript with NodeJS to collect ticks for your trading app using Deriv's API.
+ * To run this example using NodeJS
+ * - Ensure you have NodeJs installed (https://nodejs.org/).
+ * - Save this script to a directory on your computer as `ticks.js`.
+ * - Run `npm install ws` to install the websocket library.
+ * - Edit the example and change the app_id (Replace with your app_id or leave as 1089 for testing).
+ * - Then run `node ticks.js`.
+ */</span>
+
+<span class="keyword">const</span> WebSocket <span class="keyword operator">=</span> <span class="function call">require</span>(<span class="string">'ws'</span>);
+<span class="keyword">var</span> ws <span class="keyword operator">=</span> <span class="keyword">new</span> <span class="function call">WebSocket</span>(<span class="string">'wss://ws.binaryws.com/websockets/v3?app_id=1089'</span>);
+
+ws.onopen <span class="keyword operator">=</span> <span class="storage function">function</span> (evt) {
+    ws.<span class="function call">send</span>(JSON.<span class="function call">stringify</span>({ ticks: <span class="string">'R_100'</span> }));
+};
+
+ws.onmessage <span class="keyword operator">=</span> <span class="storage function">function</span> (msg) {
+    <span class="keyword">var</span> data <span class="keyword operator">=</span> JSON.<span class="function call">parse</span>(msg.data);
+    console.<span class="function call">log</span>(<span class="string">'Ticks update: %o'</span>, data);
+};</pre>
+<pre data-ticks="csharp" class="rainbow" style="display: none;">using System;
+using System.Text;
+using System.Threading.Tasks;
+using System.Net.WebSockets;
+using System.Threading;
+using System.Net;
+using Newtonsoft.Json.Linq;
+<span class="comment">/*
+ * This is an example of using C# to subscribe to a tick stream.
+ * The example was originally written in dotnet version 5.0. 
+ * It uses the Newtonsoft Json.net Library https://www.newtonsoft.com/json.
+ * This can be run on Windows/linux or Mac.
+ *  
+ * To run this example 
+ * - Ensure you have dotnet SDK installed https://dotnet.microsoft.com/download/dotnet. 
+ * - Run `dotnet new console --output ticks` in a directory on your computer.
+ * - Then run `dotnet add ticks package Newtonsoft.Json`.
+ * - Change to the new ticks directory and edit the `Program.cs` file, paste in the contents of this script and save.
+ * - Run `dotnet run --project ticks`.
+ */</span>
+namespace DerivWSDemo
+{
+    <span class="keyword">class</span> DerivWS
+    {
+        <span class="keyword">private</span> ClientWebSocket ws <span class="keyword operator">=</span> <span class="keyword">new</span> <span class="function call">ClientWebSocket</span>();
+        <span class="comment">// You can register for an app_id here https://developers.deriv.com/docs/app-registration/.</span>
+        <span class="keyword">private</span> <span class="keyword">string</span> app_id <span class="keyword operator">=</span> <span class="string">"1089"</span>; <span class="comment">// Change this to yor app_id.</span>
+        <span class="keyword">private</span> <span class="keyword">string</span> websocket_url <span class="keyword operator">=</span> <span class="string">"wss://ws.binaryws.com/websockets/v3?app_id="</span>;
+
+        <span class="keyword">public</span> async Task <span class="function call">SendRequest</span>(<span class="keyword">string</span> data)
+        {
+            <span class="keyword">while</span> (<span class="keyword">this</span>.ws.State <span class="keyword operator">=</span><span class="keyword operator">=</span> WebSocketState.Connecting) { };
+            <span class="keyword">if</span> (<span class="keyword">this</span>.ws.State <span class="keyword operator">!</span><span class="keyword operator">=</span> WebSocketState.Open)
+            {
+                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="function call">Exception</span>(<span class="string">"Connection is not open."</span>);
+            }
+            <span class="keyword">var</span> reqAsBytes <span class="keyword operator">=</span> Encoding.UTF8.<span class="function call">GetBytes</span>(data);
+            <span class="keyword">var</span> ticksRequest <span class="keyword operator">=</span> <span class="keyword">new</span> ArraySegment<span class="keyword operator">&lt;</span>byte<span class="keyword operator">&gt;</span>(reqAsBytes);
+            await <span class="keyword">this</span>.ws.<span class="function call">SendAsync</span>(ticksRequest,
+                WebSocketMessageType.Text,
+                <span class="constant language">true</span>,
+                CancellationToken.None);
+            Console.<span class="function call">WriteLine</span>(<span class="string">"The request has been sent: "</span>);
+            Console.<span class="function call">WriteLine</span>(data);
+            Console.<span class="function call">WriteLine</span>(<span class="string">"\r\n \r\n"</span>);
+        }
+
+        <span class="keyword">public</span> async Task <span class="function call">StartListen</span>()
+        {
+            WebSocketReceiveResult result;
+            <span class="keyword">while</span> (<span class="keyword">this</span>.ws.State <span class="keyword operator">=</span><span class="keyword operator">=</span> WebSocketState.Open)
+            {
+                <span class="keyword">var</span> buffer <span class="keyword operator">=</span> <span class="keyword">new</span> ArraySegment<span class="keyword operator">&lt;</span>byte<span class="keyword operator">&gt;</span>(<span class="keyword">new</span> byte[<span class="constant numeric">1024</span>]);
+                <span class="keyword">do</span>
+                {
+                    result <span class="keyword operator">=</span> await <span class="keyword">this</span>.ws.<span class="function call">ReceiveAsync</span>(<span class="keyword">new</span> ArraySegment<span class="keyword operator">&lt;</span>byte<span class="keyword operator">&gt;</span>(buffer.<span class="keyword">Array</span>), CancellationToken.None);
+                    <span class="keyword">if</span> (result.MessageType <span class="keyword operator">=</span><span class="keyword operator">=</span> WebSocketMessageType.Close)
+                    {
+                        Console.<span class="function call">WriteLine</span>(<span class="string">"Connection Closed!"</span>);
+                        <span class="keyword">break</span>;
+                    }
+                    <span class="keyword">else</span>
+                    {
+                        <span class="keyword">var</span> str <span class="keyword operator">=</span> Encoding.UTF8.<span class="function call">GetString</span>(buffer.<span class="keyword">Array</span>, <span class="constant numeric">0</span>, result.Count);
+                        <span class="comment">// Console.WriteLine(str); // Uncomment to see full JSON response.</span>
+                        JObject resultObject <span class="keyword operator">=</span> JObject.<span class="function call">Parse</span>(str);
+                        <span class="keyword">if</span> ((resultObject[<span class="string">"error"</span>] <span class="keyword operator">!</span><span class="keyword operator">=</span> <span class="constant language">null</span>))
+                        {
+                            Console.<span class="function call">WriteLine</span>(resultObject[<span class="string">"error"</span>][<span class="string">"code"</span>]);
+                        }
+                        <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">string</span>.<span class="function call">Equals</span>((<span class="keyword">string</span>)resultObject[<span class="string">"msg_type"</span>], <span class="string">"tick"</span>))
+                        {
+                            Console.<span class="function call">WriteLine</span>(<span class="string">"Ask: {0} Bid: {1}"</span>, resultObject[<span class="string">"tick"</span>][<span class="string">"ask"</span>], resultObject[<span class="string">"tick"</span>][<span class="string">"bid"</span>]);
+                        }
+                    }
+                } <span class="keyword">while</span> (<span class="keyword operator">!</span>result.EndOfMessage);
+            }
+        }
+
+        <span class="keyword">public</span> async Task <span class="function call">Connect</span>()
+        {
+            Uri uri <span class="keyword operator">=</span> <span class="keyword">new</span> <span class="function call">Uri</span>(websocket_url <span class="keyword operator">+</span> app_id);
+            Console.<span class="function call">WriteLine</span>(<span class="string">"Prepare to connect to: "</span> <span class="keyword operator">+</span> uri.<span class="function call">ToString</span>());
+            Console.<span class="function call">WriteLine</span>(<span class="string">"\r\n"</span>);
+            ServicePointManager.SecurityProtocol <span class="keyword operator">=</span> SecurityProtocolType.Tls12 <span class="keyword operator">|</span> SecurityProtocolType.Tls11;
+            await ws.<span class="function call">ConnectAsync</span>(uri, CancellationToken.None);
+            Console.<span class="function call">WriteLine</span>(<span class="string">"The connection is established!"</span>);
+            Console.<span class="function call">WriteLine</span>(<span class="string">"\r\n"</span>);
+        }
+
+        <span class="keyword">static</span> <span class="keyword">void</span> <span class="function call">Main</span>(<span class="keyword">string</span>[] args)
+        {
+            <span class="keyword">string</span> data <span class="keyword operator">=</span> <span class="string">"{<span class="constant character escape">\"</span>ticks<span class="constant character escape">\"</span>:<span class="constant character escape">\"</span>R_10<span class="constant character escape">\"</span>}"</span>;
+            <span class="keyword">var</span> bws <span class="keyword operator">=</span> <span class="keyword">new</span> <span class="function call">DerivWS</span>();
+            bws.<span class="function call">Connect</span>().<span class="function call">Wait</span>();
+            bws.<span class="function call">SendRequest</span>(data).<span class="function call">Wait</span>();
+            bws.<span class="function call">StartListen</span>().<span class="function call">GetAwaiter</span>();
+            Console.<span class="function call">ReadLine</span>();
+        }
+    }
+}</pre>
+<pre data-ticks="php" class="rainbow" style="display: none;"><span class="keyword operator">&lt;</span>?php
+<span class="comment">/*
+ * This is an example of using PHP to subscribe to a tick stream.
+ * The example uses the ratchetphp/Pawl library.  
+ * To run this example 
+ * - Save it to a new directory as `ticks.php`.
+ * - In the new directory download and install composer as explained here https://getcomposer.org/download/.
+ * - Run `php composer.phar require ratchet/pawl`.
+ * - Edit the example and change the app_id and the API token. 
+ * - Then run `php ticks.php`.
+ */</span>
+
+require __DIR__ . <span class="string">'/vendor/autoload.php'</span>;
+$myAppId <span class="keyword operator">=</span> <span class="constant numeric">1089</span>; <span class="comment">// Change this to your app_id. </span>
+\Ratchet\Client\<span class="function call">connect</span>(<span class="string">'wss://ws.binaryws.com/websockets/v3?app_id='</span>.$myAppId)<span class="keyword operator">-</span><span class="keyword operator">&gt;</span><span class="keyword">then</span>(<span class="keyword">function</span>($conn) {
+    $conn<span class="keyword operator">-</span><span class="keyword operator">&gt;</span><span class="function call">on</span>(<span class="string">'message'</span>, <span class="keyword">function</span>($msg) use ($conn) {
+        <span class="comment">//echo $msg."\n"; // Uncomment to see full JSON reply.</span>
+        $msgPHP <span class="keyword operator">=</span> <span class="function call">json_decode</span>($msg, <span class="constant numeric">1</span>); 
+
+        <span class="keyword">if</span> (<span class="function call">isset</span>($msgPHP[<span class="string">"error"</span>])) { 
+            <span class="keyword">echo</span> $msgPHP[<span class="string">"error"</span>][<span class="string">"message"</span>];
+            $conn<span class="keyword operator">-</span><span class="keyword operator">&gt;</span><span class="function call">close</span>();
+        }<span class="keyword">else</span> <span class="keyword">if</span> (<span class="function call">isset</span>($msgPHP[<span class="string">"tick"</span>])) {
+            $tick <span class="keyword operator">=</span> $msgPHP[<span class="string">"tick"</span>]; 
+            <span class="keyword">echo</span> (<span class="string">"Ask: "</span>.$tick[<span class="string">"ask"</span>]. <span class="string">" Bid: "</span>. $tick[<span class="string">"bid"</span>]<span class="keyword dot">.</span><span class="string">"\n"</span>);;    
+        }<span class="keyword">else</span> {
+            <span class="keyword">echo</span> (<span class="string">"received "</span>. $msgPHP[<span class="string">'msg_type'</span>]<span class="keyword dot">.</span><span class="string">"\n"</span>);
+        }
+    });
+
+    $conn<span class="keyword operator">-</span><span class="keyword operator">&gt;</span><span class="function call">send</span>(<span class="string">'{"ticks" : "R_100"}'</span>);
+}, <span class="storage function">function</span> ($e) {
+    <span class="keyword">echo</span> <span class="string">"Could not connect: {$e-&gt;getMessage()}\n"</span>;
+});</pre>
+<pre data-ticks="python" class="rainbow" style="display: none;"><span class="comment"># This is an example of using Python to get a ticks via the Deriv/Binary API.</span>
+<span class="comment"># The example uses the websocket-client library.</span>
+<span class="comment"># To run this example</span>
+<span class="comment"># - Ensure you have Python installed (https://www.python.org/).</span>
+<span class="comment"># - Copy and save this as a file to a new directory as `ticks.py`.</span>
+<span class="comment"># - Run `pip install websocket-client`.</span>
+<span class="comment"># - Edit the example and change the app_id and the API token.</span>
+<span class="comment"># - Then run `python ticks.py`.</span>
+<span class="comment"># Note that on some OS's the python command will be python3 and pip will be pip3.</span>
+
+<span class="keyword">import</span> websocket
+<span class="keyword">import</span> json
+
+<span class="comment"># You can register for an app_id here https://developers.deriv.com/docs/app-registration/.</span>
+app_id <span class="keyword operator">=</span> <span class="string">'1089'</span>  <span class="comment"># Replace with your app_id.</span>
+
+<span class="keyword">def</span> <span class="function call">on_open</span>(ws):
+    json_data <span class="keyword operator">=</span> json.<span class="function call">dumps</span>({<span class="string">"ticks"</span>: <span class="string">"R_100"</span>})
+    ws.<span class="function call">send</span>(json_data)
+
+<span class="keyword">def</span> <span class="function call">on_message</span>(ws, message):
+    data <span class="keyword operator">=</span> json.<span class="function call">loads</span>(message)
+    <span class="keyword">print</span>(<span class="string">'Data: %s'</span> % message)
+
+<span class="keyword">if</span> __name__ <span class="keyword operator">=</span><span class="keyword operator">=</span> <span class="string">"__main__"</span>:
+    apiUrl <span class="keyword operator">=</span> <span class="string">"wss://ws.binaryws.com/websockets/v3?app_id="</span><span class="keyword operator">+</span>app_id
+    ws <span class="keyword operator">=</span> websocket.<span class="function call">WebSocketApp</span>(apiUrl, on_message<span class="keyword operator">=</span>on_message, on_open<span class="keyword operator">=</span>on_open)
+    ws.<span class="function call">run_forever</span>()</pre>
+</div>
+</div>
+</div>
+<div class="text-block">
+<h2 class="doc-sub-title">Account balance</h2>
+<p>This example shows you how to use the Deriv API to retrieve account balance information.</p>
+<div class="card">
+<div class="card-header">
+<p class="card-header-title">
+<select id="demo-balance">
+<option value="javascript">JavaScript</option>
+<option value="csharp">C#</option>
+<option value="php">PHP</option>
+<option value="python">Python</option>
+</select>
+</p>
+<div class="copy-button">
+<img class="copy-button-image" src="./documentation_files/copy.svg" width="16" height="16" alt="copy code icon"> Copy
+</div>
+</div>
+<div class="language-demos">
+<pre data-balance="javascript" class="rainbow" style="display: block;"><span class="comment">/*
+ * This is an example of using JavaScript with NodeJS to subscribe to balance of an account. 
+ * To run this example using NodeJS
+ * - Ensure you have NodeJs installed (https://nodejs.org/).
+ * - Save this script to a directory on your computer as `account_balance.js`.
+ * - Run `npm install ws` to install the websocket library.
+ * - Edit the example and change the app_id and the API token. 
+ * - Then run `node account_balance.js`.
+ * 
+ * The api token should be from the same account that the balance is to be checked for.
+ */</span>
+<span class="keyword">const</span> WebSocket <span class="keyword operator">=</span> <span class="function call">require</span>(<span class="string">'ws'</span>);
+
+<span class="comment">// You can register for an app_id here https://developers.deriv.com/docs/app-registration/.</span>
+<span class="keyword">const</span> app_id <span class="keyword operator">=</span> <span class="constant numeric">1089</span>; <span class="comment">// Replace with your app_id.</span>
+<span class="keyword">const</span> ws <span class="keyword operator">=</span> <span class="keyword">new</span> <span class="function call">WebSocket</span>(<span class="string">'wss://ws.binaryws.com/websockets/v3?app_id='</span> <span class="keyword operator">+</span> app_id);
+
+<span class="comment">// You can get your token here https://app.deriv.com/account/api-token. </span>
+<span class="keyword">const</span> token <span class="keyword operator">=</span> <span class="string">''</span>; <span class="comment">// Replace with your API token.</span>
+
+ws.onopen <span class="keyword operator">=</span> <span class="storage function">function</span> (evt) {
+    ws.<span class="function call">send</span>(JSON.<span class="function call">stringify</span>({ <span class="string">"authorize"</span>: token })) <span class="comment">// First send an authorize call.</span>
+};
+
+ws.onmessage <span class="keyword operator">=</span> <span class="storage function">function</span> (msg) {
+    <span class="keyword">var</span> data <span class="keyword operator">=</span> JSON.<span class="function call">parse</span>(msg.data);
+    <span class="comment">// console.log('Response: %o', data); // Uncomment to see the full JSON response.</span>
+    <span class="keyword">if</span> (data.error <span class="keyword operator">!</span><span class="keyword operator">=</span><span class="keyword operator">=</span> undefined) {
+        console.<span class="function call">log</span>(<span class="string">'Error : %o'</span>, data.error.message);
+    } <span class="keyword">else</span> <span class="keyword">if</span> (data.msg_type <span class="keyword operator">=</span><span class="keyword operator">=</span> <span class="string">'authorize'</span>) {
+        <span class="comment">/*
+        * Since we can not ensure calls to websocket are made in order we must wait for 
+        * the response to the authorize call before sending the balance request. 
+        * 
+        * We subscribe to balance updates so any updates to balance will be received.
+        * If you perform a trade while this script is running you should see updates 
+        * to the balance printed.  
+        */</span>
+        ws.<span class="function call">send</span>(JSON.<span class="function call">stringify</span>({ <span class="string">"balance"</span>: <span class="constant numeric">1</span>, <span class="string">"subscribe"</span>: <span class="constant numeric">1</span> }))
+    } <span class="keyword">else</span> <span class="keyword">if</span> (data.msg_type <span class="keyword operator">=</span><span class="keyword operator">=</span> <span class="string">'balance'</span>) {
+        console.<span class="function call">log</span>(<span class="string">'Current Balance: %o'</span>, data.balance.balance);
+    } <span class="keyword">else</span> {
+        console.<span class="function call">log</span>(<span class="string">'Unknown Response %o'</span>, data);
+    }
+};</pre>
+<pre data-balance="csharp" class="rainbow" style="display: none;">using System;
+using System.Text;
+using System.Threading.Tasks;
+using System.Net.WebSockets;
+using System.Threading;
+using System.Net;
+using Newtonsoft.Json.Linq;
+<span class="comment">/*
+ * This is an example of using C# to get the balance of an account.
+ * The example was originally written in dotnet version 5.0.  
+ * It uses the Newtonsoft Json.net Library https://www.newtonsoft.com/json
+ * This can be run on Windows/linux or Mac.
+ *  
+ * To run this example 
+ * - Ensure you have dotnet SDK installed https://dotnet.microsoft.com/download/dotnet. 
+ * - Run `dotnet new console --output account_balance` in a directory on your computer.
+ * - Then run `dotnet add account_balance package Newtonsoft.Json` 
+ * - Change to the new account_balance directory and edit the `Program.cs` file, paste in the contents of this script and save.
+ * - Run `dotnet run --project account_balance` in the parent directory.
+ * The API token should be from the same account that the balance is to be checked for.
+ */</span>
+namespace DerivWSDemo
+{
+    <span class="keyword">class</span> DerivWS
+    {
+        <span class="keyword">private</span> ClientWebSocket ws <span class="keyword operator">=</span> <span class="keyword">new</span> <span class="function call">ClientWebSocket</span>();
+        <span class="comment">// You can register for an app_id here https://developers.deriv.com/docs/app-registration/.</span>
+        <span class="keyword">private</span> <span class="keyword">string</span> app_id <span class="keyword operator">=</span> <span class="string">"1089"</span>; <span class="comment">// Change this to yor app_id.</span>
+        <span class="comment">// You can get your token here https://app.deriv.com/account/api-token.</span>
+        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">string</span> token <span class="keyword operator">=</span> <span class="string">""</span>; <span class="comment">// Change this to the token you want to get the balance from. </span>
+        <span class="keyword">private</span> <span class="keyword">string</span> websocket_url <span class="keyword operator">=</span> <span class="string">"wss://ws.binaryws.com/websockets/v3?app_id="</span>;
+
+        <span class="keyword">public</span> async Task <span class="function call">SendRequest</span>(<span class="keyword">string</span> data)
+        {
+            <span class="keyword">while</span> (<span class="keyword">this</span>.ws.State <span class="keyword operator">=</span><span class="keyword operator">=</span> WebSocketState.Connecting) { };
+            <span class="keyword">if</span> (<span class="keyword">this</span>.ws.State <span class="keyword operator">!</span><span class="keyword operator">=</span> WebSocketState.Open)
+            {
+                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="function call">Exception</span>(<span class="string">"Connection is not open."</span>);
+            }
+            <span class="keyword">var</span> reqAsBytes <span class="keyword operator">=</span> Encoding.UTF8.<span class="function call">GetBytes</span>(data);
+            <span class="keyword">var</span> ticksRequest <span class="keyword operator">=</span> <span class="keyword">new</span> ArraySegment<span class="keyword operator">&lt;</span>byte<span class="keyword operator">&gt;</span>(reqAsBytes);
+
+            await <span class="keyword">this</span>.ws.<span class="function call">SendAsync</span>(ticksRequest,
+                WebSocketMessageType.Text,
+                <span class="constant language">true</span>,
+                CancellationToken.None);
+            Console.<span class="function call">WriteLine</span>(<span class="string">"The request has been sent: "</span>);
+            Console.<span class="function call">WriteLine</span>(data);
+            Console.<span class="function call">WriteLine</span>(<span class="string">"\r\n \r\n"</span>);
+        }
+
+        <span class="keyword">public</span> async Task <span class="function call">StartListen</span>()
+        {
+            WebSocketReceiveResult result;
+            <span class="keyword">while</span> (<span class="keyword">this</span>.ws.State <span class="keyword operator">=</span><span class="keyword operator">=</span> WebSocketState.Open)
+            {
+                <span class="keyword">var</span> buffer <span class="keyword operator">=</span> <span class="keyword">new</span> ArraySegment<span class="keyword operator">&lt;</span>byte<span class="keyword operator">&gt;</span>(<span class="keyword">new</span> byte[<span class="constant numeric">1024</span>]);
+                <span class="keyword">do</span>
+                {
+                    result <span class="keyword operator">=</span> await <span class="keyword">this</span>.ws.<span class="function call">ReceiveAsync</span>(<span class="keyword">new</span> ArraySegment<span class="keyword operator">&lt;</span>byte<span class="keyword operator">&gt;</span>(buffer.<span class="keyword">Array</span>), CancellationToken.None);
+                    <span class="keyword">if</span> (result.MessageType <span class="keyword operator">=</span><span class="keyword operator">=</span> WebSocketMessageType.Close)
+                    {
+                        Console.<span class="function call">WriteLine</span>(<span class="string">"Connection Closed!"</span>);
+                        <span class="keyword">break</span>;
+                    }
+                    <span class="keyword">else</span>
+                    {
+                        <span class="keyword">var</span> str <span class="keyword operator">=</span> Encoding.UTF8.<span class="function call">GetString</span>(buffer.<span class="keyword">Array</span>, <span class="constant numeric">0</span>, result.Count);
+                        <span class="comment">// Console.WriteLine(str); // Uncomment to see full JSON response.</span>
+                        JObject resultObject <span class="keyword operator">=</span> JObject.<span class="function call">Parse</span>(str);
+                        <span class="keyword">if</span> ((resultObject[<span class="string">"error"</span>] <span class="keyword operator">!</span><span class="keyword operator">=</span> <span class="constant language">null</span>))
+                        {
+                            Console.<span class="function call">WriteLine</span>(resultObject[<span class="string">"error"</span>][<span class="string">"code"</span>]);
+                            Console.<span class="function call">WriteLine</span>(resultObject[<span class="string">"error"</span>][<span class="string">"message"</span>]);
+                        } <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">string</span>.<span class="function call">Equals</span>((<span class="keyword">string</span>)resultObject[<span class="string">"msg_type"</span>], <span class="string">"authorize"</span>)) {
+                        <span class="comment">/*
+                        * Since we can not ensure calls to websocket are made in order we must wait for 
+                        * the response to the authorize call before sending the balance request. 
+                        * 
+                        * We subscribe to balance updates so any updates to balance will be received.
+                        * If you perform a trade while this script is running you should see updates 
+                        * to the balance printed.  
+                        */</span>
+                            <span class="keyword">var</span> data <span class="keyword operator">=</span> <span class="string">"{<span class="constant character escape">\"</span>balance<span class="constant character escape">\"</span>:1,<span class="constant character escape">\"</span>subscribe<span class="constant character escape">\"</span>:1}"</span>;
+                            <span class="keyword">this</span>.<span class="function call">SendRequest</span>(data).<span class="function call">Wait</span>();
+                        } <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">string</span>.<span class="function call">Equals</span>((<span class="keyword">string</span>)resultObject[<span class="string">"msg_type"</span>], <span class="string">"balance"</span>)){
+                            Console.<span class="function call">WriteLine</span>(<span class="string">"Current Balance: {0}"</span>, resultObject[<span class="string">"balance"</span>][<span class="string">"balance"</span>]);
+                        } 
+                    }
+                } <span class="keyword">while</span> (<span class="keyword operator">!</span>result.EndOfMessage);
+            }
+        }
+
+        <span class="keyword">public</span> async Task <span class="function call">Connect</span>()
+        {
+            Uri uri <span class="keyword operator">=</span> <span class="keyword">new</span> <span class="function call">Uri</span>(websocket_url <span class="keyword operator">+</span> app_id);
+            Console.<span class="function call">WriteLine</span>(<span class="string">"Prepare to connect to: "</span> <span class="keyword operator">+</span> uri.<span class="function call">ToString</span>());
+            Console.<span class="function call">WriteLine</span>(<span class="string">"\r\n"</span>);
+            <span class="comment">// WebProxy proxyObject = new WebProxy("http://172.30.160.1:1090",true); // These 2 lines allow proxying set the proxy url as needed.</span>
+            <span class="comment">// ws.Options.Proxy = proxyObject;</span>
+            ServicePointManager.SecurityProtocol <span class="keyword operator">=</span> SecurityProtocolType.Tls12 <span class="keyword operator">|</span> SecurityProtocolType.Tls11;
+            await ws.<span class="function call">ConnectAsync</span>(uri, CancellationToken.None);
+            Console.<span class="function call">WriteLine</span>(<span class="string">"The connection is established!"</span>);
+            Console.<span class="function call">WriteLine</span>(<span class="string">"\r\n"</span>);
+        }
+
+        <span class="keyword">static</span> <span class="keyword">void</span> <span class="function call">Main</span>(<span class="keyword">string</span>[] args)
+        {
+            <span class="keyword">string</span> data <span class="keyword operator">=</span> <span class="string">"{ <span class="constant character escape">\"</span>authorize<span class="constant character escape">\"</span>: <span class="constant character escape">\"</span>"</span><span class="keyword operator">+</span> token <span class="keyword operator">+</span><span class="string">"<span class="constant character escape">\"</span>}"</span>;
+            <span class="keyword">var</span> bws <span class="keyword operator">=</span> <span class="keyword">new</span> <span class="function call">DerivWS</span>();
+            bws.<span class="function call">Connect</span>().<span class="function call">Wait</span>();
+            bws.<span class="function call">SendRequest</span>(data).<span class="function call">Wait</span>();
+            bws.<span class="function call">StartListen</span>().<span class="function call">GetAwaiter</span>();
+            Console.<span class="function call">ReadLine</span>();
+        }
+    }
+}</pre>
+<pre data-balance="php" class="rainbow" style="display: none;"><span class="keyword operator">&lt;</span>?php
+<span class="comment">/*
+ * This is an example of using PHP to get an account balance from the Deriv/Binary API.
+ * The example uses the ratchetphp/Pawl library.  
+ * To run this example 
+ * - Save it to a new directory as `account_balance.php`.
+ * - In the new directory download and install composer as explained here https://getcomposer.org/download/.
+ * - Run `php composer.phar require ratchet/pawl`.
+ * - Edit the example and change the app_id and the API token. 
+ * - Then run `php account_balance.php`.
+ * The API token should be from the same account that the balance is to be obtained from. 
+ *
+ */</span>
+
+require __DIR__ . <span class="string">'/vendor/autoload.php'</span>;
+
+<span class="comment">// You can register for an app_id here https://developers.deriv.com/docs/app-registration/.</span>
+$myAppId <span class="keyword operator">=</span> <span class="constant numeric">1089</span>; <span class="comment">// Put your app_id here. </span>
+
+<span class="comment">// You can get your token here https://app.deriv.com/account/api-token. </span>
+$token <span class="keyword operator">=</span> <span class="string">''</span>; <span class="comment">// Put the authorization token for the account to get the balance from here.  </span>
+
+\Ratchet\Client\<span class="function call">connect</span>(<span class="string">'wss://ws.binaryws.com/websockets/v3?app_id='</span> . $myAppId)<span class="keyword operator">-</span><span class="keyword operator">&gt;</span><span class="keyword">then</span>(<span class="storage function">function</span> ($conn) use ($token) {
+    $conn<span class="keyword operator">-</span><span class="keyword operator">&gt;</span><span class="function call">on</span>(<span class="string">'message'</span>, <span class="storage function">function</span> ($msg) use ($conn, $token) {
+        <span class="comment">// echo $msg; // Uncomment this to see the full JSON response.</span>
+        $msgPHP <span class="keyword operator">=</span> <span class="function call">json_decode</span>($msg, <span class="constant numeric">1</span>);
+        <span class="comment">/*
+         * Since there can be no guarantee of the order of the calls when using websocket we need
+         * to check that we have received a reply to the authorize call before sending the balance 
+         * request.
+         */</span>
+        <span class="keyword">if</span> (<span class="function call">isset</span>($msgPHP[<span class="string">"error"</span>])) {
+            <span class="keyword">echo</span> $msgPHP[<span class="string">"error"</span>][<span class="string">"message"</span>];
+            $conn<span class="keyword operator">-</span><span class="keyword operator">&gt;</span><span class="function call">close</span>();
+        }<span class="keyword">else</span> <span class="keyword">if</span> ($msgPHP[<span class="string">"msg_type"</span>] <span class="keyword operator">=</span><span class="keyword operator">=</span> <span class="string">'authorize'</span>) {
+            $conn<span class="keyword operator">-</span><span class="keyword operator">&gt;</span><span class="function call">send</span>(<span class="string">'{"balance" : 1, "subscribe" :1  }'</span>); <span class="comment">// Subscribing means we will continue to receive balance updates until this script exits.  </span>
+        } <span class="keyword">else</span> <span class="keyword">if</span> ($msgPHP[<span class="string">"msg_type"</span>] <span class="keyword operator">=</span><span class="keyword operator">=</span> <span class="string">'balance'</span>) {
+            <span class="keyword">echo</span> <span class="string">"current_balance is "</span> . $msgPHP[<span class="string">"balance"</span>][<span class="string">"balance"</span>] . <span class="string">"\n"</span>;
+        }
+    });
+    $conn<span class="keyword operator">-</span><span class="keyword operator">&gt;</span><span class="function call">send</span>(<span class="string">'{"authorize" : "'</span> . $token . <span class="string">'"}'</span>);
+}, <span class="storage function">function</span> ($e) {
+    <span class="keyword">echo</span> <span class="string">"Could not connect: {$e-&gt;getMessage()}\n"</span>;
+});</pre>
+<pre data-balance="python" class="rainbow" style="display: none;"><span class="comment">#</span>
+<span class="comment"># This is an example of using Python to get an account balance from the Deriv/Binary API.</span>
+<span class="comment"># The example uses the websocket-client library.</span>
+<span class="comment"># To run this example</span>
+<span class="comment"># - Ensure you have Python installed (https://www.python.org/).</span>
+<span class="comment"># - Copy and save this as a file to a new directory as `account_balance.py`.</span>
+<span class="comment"># - Run `pip install websocket-client`.</span>
+<span class="comment"># - Edit the example and change the app_id and the API token.</span>
+<span class="comment"># - Then run `python account_balance.py`.</span>
+<span class="comment"># The API token should be from the same account that the balance is to be obtained from.</span>
+<span class="comment"># Note that on some OS's the python command will be python3 and pip will be pip3.</span>
+
+<span class="keyword">import</span> websocket
+<span class="keyword">import</span> json
+
+<span class="comment"># You can register for an app_id here https://developers.deriv.com/docs/app-registration/.</span>
+app_id <span class="keyword operator">=</span> <span class="string">'1089'</span>  <span class="comment"># Replace with your app_id.</span>
+
+<span class="comment"># You can get your token here https://app.deriv.com/account/api-token.</span>
+<span class="comment"># Replace with a token from the account that you wish to get the balance from.</span>
+token <span class="keyword operator">=</span> <span class="string">''</span>
+
+<span class="keyword">def</span> <span class="function call">on_open</span>(ws):
+    json_data <span class="keyword operator">=</span> json.<span class="function call">dumps</span>({<span class="string">'authorize'</span>: token})
+    ws.<span class="function call">send</span>(json_data)
+
+<span class="keyword">def</span> <span class="function call">on_message</span>(ws, message):
+    data <span class="keyword operator">=</span> json.<span class="function call">loads</span>(message)
+    <span class="comment"># print('Data: %s' % message) # Uncomment this line to see all response data.</span>
+    <span class="keyword">if</span> <span class="string">'error'</span> in data.<span class="function call">keys</span>():
+        <span class="keyword">print</span>(<span class="string">'Error Happened: %s'</span> % message)
+    <span class="comment"># With Websockets we can not control the order things are processed in so we need</span>
+    <span class="comment"># to ensure that we have received a response to authorize before we continue.</span>
+    elif data[<span class="string">"msg_type"</span>] <span class="keyword operator">=</span><span class="keyword operator">=</span> <span class="string">'authorize'</span>:
+        <span class="keyword">print</span>(<span class="string">"Authorized OK, so now get balance"</span>)
+        json_data1 <span class="keyword operator">=</span> json.<span class="function call">dumps</span>({<span class="string">'balance'</span>: <span class="constant numeric">1</span>, <span class="string">'subscribe'</span>: <span class="constant numeric">1</span>})
+        ws.<span class="function call">send</span>(json_data1)
+    <span class="comment"># Because we subscribed we will continue to receive Balance updates when it changes.</span>
+    elif data[<span class="string">"msg_type"</span>] <span class="keyword operator">=</span><span class="keyword operator">=</span> <span class="string">'balance'</span>:
+        <span class="keyword">print</span>(<span class="string">'balance: %s'</span> % data[<span class="string">'balance'</span>][<span class="string">'balance'</span>])
+    <span class="keyword">else</span>:
+        <span class="keyword">print</span>(<span class="string">'unrecognized data: %s'</span>)
+
+<span class="keyword">if</span> __name__ <span class="keyword operator">=</span><span class="keyword operator">=</span> <span class="string">"__main__"</span>:
+    apiUrl <span class="keyword operator">=</span> <span class="string">"wss://ws.binaryws.com/websockets/v3?app_id="</span><span class="keyword operator">+</span>app_id
+    ws <span class="keyword operator">=</span> websocket.<span class="function call">WebSocketApp</span>(apiUrl, on_message<span class="keyword operator">=</span>on_message, on_open<span class="keyword operator">=</span>on_open)
+    ws.<span class="function call">run_forever</span>()</pre>
+</div>
+</div>
+</div>
+<div class="text-block">
+<h2 class="doc-sub-title">Proposal</h2>
+<p>This example is for getting a contract proposal. You’ll be able to get the price, payout and spot value
+for your contract.</p>
+<p>To keep this connection alive in case of inactivity timeouts, see the example for <a href="https://api.deriv.com/docs/#keep-alive">Keep alive</a>.</p>
+<div class="card">
+<div class="card-header">
+<p class="card-header-title">
+<select id="demo-proposal">
+<option value="javascript">JavaScript</option>
+<option value="csharp">C#</option>
+<option value="php">PHP</option>
+<option value="python">Python</option>
+</select>
+</p>
+<div class="copy-button">
+<img class="copy-button-image" src="./documentation_files/copy.svg" width="16" height="16" alt="copy code icon"> Copy
+</div>
+</div>
+<div class="language-demos">
+<pre data-proposal="javascript" class="rainbow" style="display: block;"><span class="comment">/*
+ * This is an example of using JavaScript with NodeJS to view contract proposals via the Deriv/Binary API.
+ * This is a simple example where we do not check first if the user has the
+ * symbol available. To check this you would use the active_symbols call.
+ * To run this example using NodeJS
+ * - Ensure you have NodeJs installed (https://nodejs.org/).
+ * - Save this script to a directory on your computer as `proposal.js`.
+ * - Run `npm install ws` to install the websocket library.
+ * - Edit the example and change the app_id and the API token. 
+ * - Then run `node proposal.js`.
+ * 
+ */</span>
+<span class="keyword">const</span> WebSocket <span class="keyword operator">=</span> <span class="function call">require</span>(<span class="string">'ws'</span>);
+<span class="keyword">const</span> app_id <span class="keyword operator">=</span> <span class="constant numeric">1089</span>; <span class="comment">// Replace with your app_id or leave as 1089 for testing.</span>
+<span class="keyword">const</span> ws <span class="keyword operator">=</span> <span class="keyword">new</span> <span class="function call">WebSocket</span>(<span class="string">'wss://ws.binaryws.com/websockets/v3?app_id='</span> <span class="keyword operator">+</span> app_id);
+
+ws.onopen <span class="keyword operator">=</span> <span class="storage function">function</span> (evt) {
+    ws.<span class="function call">send</span>(JSON.<span class="function call">stringify</span>({
+        <span class="string">"proposal"</span>: <span class="constant numeric">1</span>,
+        <span class="string">"subscribe"</span>: <span class="constant numeric">1</span>,
+        <span class="string">"amount"</span>: <span class="constant numeric">10</span>,
+        <span class="string">"basis"</span>: <span class="string">"payout"</span>,
+        <span class="string">"contract_type"</span>: <span class="string">"CALL"</span>,
+        <span class="string">"currency"</span>: <span class="string">"USD"</span>,
+        <span class="string">"duration"</span>: <span class="constant numeric">1</span>,
+        <span class="string">"duration_unit"</span>: <span class="string">"m"</span>,
+        <span class="string">"symbol"</span>: <span class="string">"R_100"</span>,
+        <span class="string">"barrier"</span>: <span class="string">"+0.1"</span>
+    }));
+};
+
+ws.onmessage <span class="keyword operator">=</span> <span class="storage function">function</span> (msg) {
+    <span class="keyword">var</span> data <span class="keyword operator">=</span> JSON.<span class="function call">parse</span>(msg.data);
+    <span class="comment">// console.log('Response: %o', data); // Uncomment this to see full response data. </span>
+    <span class="keyword">if</span> (data.error <span class="keyword operator">!</span><span class="keyword operator">=</span><span class="keyword operator">=</span> undefined) {
+        console.<span class="function call">log</span>(<span class="string">"Error: %s"</span>, data.error.message);
+        ws.<span class="function call">close</span>();
+    } <span class="keyword">else</span> <span class="keyword">if</span> (data.msg_type <span class="keyword operator">=</span><span class="keyword operator">=</span> <span class="string">'proposal'</span>) {
+        console.<span class="function call">log</span>(<span class="string">"Details: %s"</span>, data.proposal.longcode);
+        console.<span class="function call">log</span>(<span class="string">"Ask Price: %s"</span>, data.proposal.display_value);
+        console.<span class="function call">log</span>(<span class="string">"Payout: %s"</span>, data.proposal.payout);
+        console.<span class="function call">log</span>(<span class="string">"Spot: %s"</span>, data.proposal.spot);
+    }
+};</pre>
+<pre data-proposal="csharp" class="rainbow" style="display: none;">using System;
+using System.Text;
+using System.Threading.Tasks;
+using System.Net.WebSockets;
+using System.Threading;
+using System.Net;
+using Newtonsoft.Json.Linq;
+<span class="comment">/*
+ * This is an example of using C# to view contract proposals via the Deriv/Binary API.
+ * This is a simple example where we do not check first if the user has the 
+ * symbol available. To check this you would use the active_symbols call.
+ * The example was originally written in dotnet version 5.0.
+ * It uses the Newtonsoft Json.net Library https://www.newtonsoft.com/json.
+ * This can be run on Windows/linux or Mac.
+ *  
+ * To run this example 
+ * - Ensure you have dotnet SDK installed https://dotnet.microsoft.com/download/dotnet. 
+ * - Run `dotnet new console --output proposal` in a directory on your computer.
+ * - Then run `dotnet add proposal package Newtonsoft.Json`. 
+ * - Change to the new proposal directory and edit the `Program.cs` file, paste in the contents of this script and save.
+ * - Run `dotnet run --project proposal` in the parent directory.
+ */</span>
+namespace DerivWSDemo
+{
+    <span class="keyword">class</span> DerivWS
+    {
+        <span class="keyword">private</span> ClientWebSocket ws <span class="keyword operator">=</span> <span class="keyword">new</span> <span class="function call">ClientWebSocket</span>();
+        <span class="keyword">private</span> <span class="keyword">string</span> app_id <span class="keyword operator">=</span> <span class="string">"1089"</span>; <span class="comment">// Change this to yor app_id.</span>
+        <span class="keyword">private</span> <span class="keyword">string</span> websocket_url <span class="keyword operator">=</span> <span class="string">"wss://ws.binaryws.com/websockets/v3?app_id="</span>;
+
+        <span class="keyword">public</span> async Task <span class="function call">SendRequest</span>(<span class="keyword">string</span> data)
+        {
+            <span class="keyword">while</span> (<span class="keyword">this</span>.ws.State <span class="keyword operator">=</span><span class="keyword operator">=</span> WebSocketState.Connecting) { };
+            <span class="keyword">if</span> (<span class="keyword">this</span>.ws.State <span class="keyword operator">!</span><span class="keyword operator">=</span> WebSocketState.Open)
+            {
+                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="function call">Exception</span>(<span class="string">"Connection is not open."</span>);
+            }
+            <span class="keyword">var</span> reqAsBytes <span class="keyword operator">=</span> Encoding.UTF8.<span class="function call">GetBytes</span>(data);
+            <span class="keyword">var</span> ticksRequest <span class="keyword operator">=</span> <span class="keyword">new</span> ArraySegment<span class="keyword operator">&lt;</span>byte<span class="keyword operator">&gt;</span>(reqAsBytes);
+            await <span class="keyword">this</span>.ws.<span class="function call">SendAsync</span>(ticksRequest,
+                WebSocketMessageType.Text,
+                <span class="constant language">true</span>,
+                CancellationToken.None);
+            Console.<span class="function call">WriteLine</span>(<span class="string">"The request has been sent: "</span>);
+            Console.<span class="function call">WriteLine</span>(data);
+            Console.<span class="function call">WriteLine</span>(<span class="string">"\r\n \r\n"</span>);
+        }
+
+        <span class="keyword">public</span> async Task <span class="function call">StartListen</span>()
+        {
+            WebSocketReceiveResult result;
+            <span class="keyword">while</span> (<span class="keyword">this</span>.ws.State <span class="keyword operator">=</span><span class="keyword operator">=</span> WebSocketState.Open)
+            {
+                <span class="keyword">var</span> buffer <span class="keyword operator">=</span> <span class="keyword">new</span> ArraySegment<span class="keyword operator">&lt;</span>byte<span class="keyword operator">&gt;</span>(<span class="keyword">new</span> byte[<span class="constant numeric">1024</span>]);
+                <span class="keyword">do</span>
+                {
+                    result <span class="keyword operator">=</span> await <span class="keyword">this</span>.ws.<span class="function call">ReceiveAsync</span>(<span class="keyword">new</span> ArraySegment<span class="keyword operator">&lt;</span>byte<span class="keyword operator">&gt;</span>(buffer.<span class="keyword">Array</span>), CancellationToken.None);
+                    <span class="keyword">if</span> (result.MessageType <span class="keyword operator">=</span><span class="keyword operator">=</span> WebSocketMessageType.Close)
+                    {
+                        Console.<span class="function call">WriteLine</span>(<span class="string">"Connection Closed!"</span>);
+                        <span class="keyword">break</span>;
+                    }
+                    <span class="keyword">else</span>
+                    {
+                        <span class="keyword">var</span> str <span class="keyword operator">=</span> Encoding.UTF8.<span class="function call">GetString</span>(buffer.<span class="keyword">Array</span>, <span class="constant numeric">0</span>, result.Count);
+                        <span class="comment">// Console.WriteLine(str); // Uncomment to see full JSON response.</span>
+                        JObject resultObject <span class="keyword operator">=</span> JObject.<span class="function call">Parse</span>(str);
+                        <span class="keyword">if</span> ((resultObject[<span class="string">"error"</span>] <span class="keyword operator">!</span><span class="keyword operator">=</span> <span class="constant language">null</span>))
+                        {
+                            Console.<span class="function call">WriteLine</span>(resultObject[<span class="string">"error"</span>][<span class="string">"code"</span>]);
+                            Console.<span class="function call">WriteLine</span>(resultObject[<span class="string">"error"</span>][<span class="string">"message"</span>]);
+                        }
+                        <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">string</span>.<span class="function call">Equals</span>((<span class="keyword">string</span>)resultObject[<span class="string">"msg_type"</span>], <span class="string">"proposal"</span>))
+                        {
+                            Console.<span class="function call">WriteLine</span>(<span class="string">"Details: {0}"</span>, resultObject[<span class="string">"proposal"</span>][<span class="string">"longcode"</span>]);
+                            Console.<span class="function call">WriteLine</span>(<span class="string">"Ask Price: {0}"</span>, resultObject[<span class="string">"proposal"</span>][<span class="string">"display_value"</span>]);
+                            Console.<span class="function call">WriteLine</span>(<span class="string">"Payout: {0}"</span>, resultObject[<span class="string">"proposal"</span>][<span class="string">"payout"</span>]);
+                            Console.<span class="function call">WriteLine</span>(<span class="string">"Spot: {0}"</span>, resultObject[<span class="string">"proposal"</span>][<span class="string">"spot"</span>]);
+                        }
+                    }
+                } <span class="keyword">while</span> (<span class="keyword operator">!</span>result.EndOfMessage);
+            }
+        }
+
+        <span class="keyword">public</span> async Task <span class="function call">Connect</span>()
+        {
+            Uri uri <span class="keyword operator">=</span> <span class="keyword">new</span> <span class="function call">Uri</span>(websocket_url <span class="keyword operator">+</span> app_id);
+            Console.<span class="function call">WriteLine</span>(<span class="string">"Prepare to connect to: "</span> <span class="keyword operator">+</span> uri.<span class="function call">ToString</span>());
+            Console.<span class="function call">WriteLine</span>(<span class="string">"\r\n"</span>);
+            <span class="comment">// WebProxy proxyObject = new WebProxy("http://172.30.160.1:1090",true); // These 2 lines allow proxying set the proxy url as needed.</span>
+            <span class="comment">// ws.Options.Proxy = proxyObject;</span>
+            ServicePointManager.SecurityProtocol <span class="keyword operator">=</span> SecurityProtocolType.Tls12 <span class="keyword operator">|</span> SecurityProtocolType.Tls11;
+            await ws.<span class="function call">ConnectAsync</span>(uri, CancellationToken.None);
+            Console.<span class="function call">WriteLine</span>(<span class="string">"The connection is established!"</span>);
+            Console.<span class="function call">WriteLine</span>(<span class="string">"\r\n"</span>);
+        }
+
+        <span class="keyword">static</span> <span class="keyword">void</span> <span class="function call">Main</span>(<span class="keyword">string</span>[] args)
+        {
+            <span class="keyword">string</span> data <span class="keyword operator">=</span> <span class="string">"{ <span class="constant character escape">\"</span>proposal<span class="constant character escape">\"</span>: 1, <span class="constant character escape">\"</span>amount<span class="constant character escape">\"</span>: 100, <span class="constant character escape">\"</span>barrier<span class="constant character escape">\"</span>: <span class="constant character escape">\"</span>+0.1<span class="constant character escape">\"</span>, <span class="constant character escape">\"</span>basis<span class="constant character escape">\"</span>: <span class="constant character escape">\"</span>payout<span class="constant character escape">\"</span>, <span class="constant character escape">\"</span>contract_type<span class="constant character escape">\"</span>: <span class="constant character escape">\"</span>CALL<span class="constant character escape">\"</span>, <span class="constant character escape">\"</span>currency<span class="constant character escape">\"</span>: <span class="constant character escape">\"</span>USD<span class="constant character escape">\"</span>, <span class="constant character escape">\"</span>duration<span class="constant character escape">\"</span>: 60, <span class="constant character escape">\"</span>duration_unit<span class="constant character escape">\"</span>: <span class="constant character escape">\"</span>s<span class="constant character escape">\"</span>, <span class="constant character escape">\"</span>symbol<span class="constant character escape">\"</span>: <span class="constant character escape">\"</span>R_100<span class="constant character escape">\"</span> , <span class="constant character escape">\"</span>subscribe<span class="constant character escape">\"</span> : 1}"</span>;
+            <span class="keyword">var</span> bws <span class="keyword operator">=</span> <span class="keyword">new</span> <span class="function call">DerivWS</span>();
+            bws.<span class="function call">Connect</span>().<span class="function call">Wait</span>();
+            bws.<span class="function call">SendRequest</span>(data).<span class="function call">Wait</span>();
+            bws.<span class="function call">StartListen</span>().<span class="function call">GetAwaiter</span>();
+            Console.<span class="function call">ReadLine</span>();
+        }
+    }
+}</pre>
+<pre data-proposal="php" class="rainbow" style="display: none;"><span class="keyword operator">&lt;</span>?php
+<span class="comment">/*
+ * This is an example of using PHP to get a contract proposal via  the Deriv/Binary API.
+ * This is a simple example where we do not check first if the user has the
+ * symbol available. To check this you would use the active_symbols call.
+ * The example uses the ratchetphp/Pawl library.  
+ * To run this example 
+ * - Save it to a new directory as `proposal.php`.
+ * - In the new directory download and install composer as explained here https://getcomposer.org/download/.
+ * - Run `php composer.phar require ratchet/pawl`.
+ * - Edit the example and change the app_id and the API token. 
+ * - Then run `php proposal.php`.
+ * The API token should be from the same account that the contract is to be purchased for.
+ */</span>
+
+require __DIR__ . <span class="string">'/vendor/autoload.php'</span>;
+
+$myAppId <span class="keyword operator">=</span> <span class="constant numeric">1089</span>; <span class="comment">// Put your app_id here. </span>
+$loop <span class="keyword operator">=</span> \React\EventLoop\Loop::<span class="function call">get</span>();
+
+$Connector <span class="keyword operator">=</span> <span class="keyword">new</span> React\Socket\<span class="function call">Connector</span>($loop, <span class="keyword">array</span>(
+    <span class="string">'timeout'</span> <span class="keyword operator">=</span><span class="keyword operator">&gt;</span> <span class="constant numeric">10</span>
+));
+
+$connector <span class="keyword operator">=</span> <span class="keyword">new</span> \Ratchet\Client\<span class="function call">Connector</span>($loop, $Connector);
+
+$<span class="function call">connector</span>(<span class="string">'wss://ws.binaryws.com/websockets/v3?app_id='</span> . $myAppId)
+    <span class="keyword operator">-</span><span class="keyword operator">&gt;</span><span class="keyword">then</span>(<span class="storage function">function</span> (\Ratchet\Client\WebSocket $conn) {
+        $conn<span class="keyword operator">-</span><span class="keyword operator">&gt;</span><span class="function call">on</span>(<span class="string">'message'</span>, <span class="storage function">function</span> (\Ratchet\RFC6455\Messaging\MessageInterface $msg) use ($conn) {
+            $msgPHP <span class="keyword operator">=</span> <span class="function call">json_decode</span>($msg, <span class="constant numeric">1</span>);
+            <span class="comment">//echo '&gt; '.$msg; // Uncomment to see full details of message. </span>
+            <span class="keyword">if</span> (<span class="function call">isset</span>($msgPHP[<span class="string">"error"</span>])) {
+                <span class="keyword">echo</span> $msgPHP[<span class="string">"error"</span>][<span class="string">"message"</span>];
+            } <span class="keyword">else</span> {
+                <span class="keyword">echo</span> (<span class="string">"Details: "</span> . $msgPHP[<span class="string">"proposal"</span>][<span class="string">"longcode"</span>]). <span class="string">"\n"</span>;
+                <span class="keyword">echo</span> (<span class="string">"Ask Price: "</span> . $msgPHP[<span class="string">"proposal"</span>][<span class="string">"display_value"</span>]). <span class="string">"\n"</span>;
+                <span class="keyword">echo</span> (<span class="string">"Payout: "</span> . $msgPHP[<span class="string">"proposal"</span>][<span class="string">"payout"</span>]). <span class="string">"\n"</span>;
+                <span class="keyword">echo</span> (<span class="string">"Spot: "</span> . $msgPHP[<span class="string">"proposal"</span>][<span class="string">"spot"</span>]). <span class="string">"\n"</span>;
+            }
+        });
+
+        <span class="comment">/*
+         * Since we do not need to be authorized to get proposal response there is no need to send 
+         * an Authorization token first however when not Authorized the the available contracts is limited by 
+         * the country the request is sent from.  
+         */</span>
+        $conn<span class="keyword operator">-</span><span class="keyword operator">&gt;</span><span class="function call">send</span>(<span class="string">'{ "proposal": 1, "amount": 100, "barrier": "+0.1", "basis": "payout", "contract_type": "CALL", "currency": "USD", "duration": 60, "duration_unit": "s", "symbol": "R_100" , "subscribe":1}'</span>);
+    }, <span class="storage function">function</span> (\Exception $e) use ($loop) {
+        <span class="keyword">echo</span> <span class="string">"Could not connect: {$e-&gt;getMessage()}\n"</span>;
+        $loop<span class="keyword operator">-</span><span class="keyword operator">&gt;</span><span class="function call">stop</span>();
+    });
+$loop<span class="keyword operator">-</span><span class="keyword operator">&gt;</span><span class="function call">run</span>();</pre>
+<pre data-proposal="python" class="rainbow" style="display: none;"><span class="comment"># This is an example of using Python to get a contract proposal via the Deriv/Binary API.</span>
+<span class="comment"># The example uses the websocket-client library.</span>
+<span class="comment"># To run this example</span>
+<span class="comment"># - Ensure you have Python installed (https://www.python.org/).</span>
+<span class="comment"># - Copy and save this as a file to a new directory as `proposal.py`.</span>
+<span class="comment"># - Run `pip install websocket-client`.</span>
+<span class="comment"># - Edit the example and change the app_id and the API token.</span>
+<span class="comment"># - Then run `python proposal.py`.</span>
+<span class="comment"># Note that on some OS's the python command will be python3 and pip will be pip3.</span>
+
+<span class="keyword">import</span> websocket
+<span class="keyword">import</span> json
+
+<span class="comment"># You can register for an app_id here https://developers.deriv.com/docs/app-registration/.</span>
+app_id <span class="keyword operator">=</span> <span class="string">'1089'</span>  <span class="comment"># Replace with your app_id.</span>
+
+<span class="keyword">def</span> <span class="function call">on_open</span>(ws):
+    json_data <span class="keyword operator">=</span> json.<span class="function call">dumps</span>({<span class="string">"proposal"</span>: <span class="constant numeric">1</span>,
+     <span class="string">"amount"</span>: <span class="constant numeric">100</span>, <span class="string">"barrier"</span>: <span class="string">"+0.1"</span>, <span class="string">"basis"</span>: <span class="string">"payout"</span>, <span class="string">"contract_type"</span>: <span class="string">"CALL"</span>, <span class="string">"currency"</span>: <span class="string">"USD"</span>, <span class="string">"duration"</span>: <span class="constant numeric">60</span>, <span class="string">"duration_unit"</span>: <span class="string">"s"</span>, <span class="string">"symbol"</span>: <span class="string">"R_100"</span> , <span class="string">"subscribe"</span>:<span class="constant numeric">1</span>})
+    ws.<span class="function call">send</span>(json_data)
+
+<span class="keyword">def</span> <span class="function call">on_message</span>(ws, message):
+    data <span class="keyword operator">=</span> json.<span class="function call">loads</span>(message)
+    <span class="comment"># print('Data: %s' % message) # Uncomment this line to see all response data.</span>
+    <span class="keyword">if</span> <span class="string">'error'</span> in data.<span class="function call">keys</span>():
+        <span class="keyword">print</span>(<span class="string">'Error Happened: %s'</span> % message)
+    elif data[<span class="string">"msg_type"</span>] <span class="keyword operator">=</span><span class="keyword operator">=</span> <span class="string">'proposal'</span>:
+        <span class="keyword">print</span> (<span class="string">"Contract : %s "</span> % data[<span class="string">'proposal'</span>][<span class="string">'longcode'</span>]);    
+        <span class="keyword">print</span> (<span class="string">"Price : %s "</span> % data[<span class="string">'proposal'</span>][<span class="string">'display_value'</span>]);    
+        <span class="keyword">print</span> (<span class="string">"Payout : %s "</span> % data[<span class="string">'proposal'</span>][<span class="string">'payout'</span>]);    
+        <span class="keyword">print</span> (<span class="string">"Spot: %s "</span> % data[<span class="string">'proposal'</span>][<span class="string">'spot'</span>]);
+
+<span class="keyword">if</span> __name__ <span class="keyword operator">=</span><span class="keyword operator">=</span> <span class="string">"__main__"</span>:
+    apiUrl <span class="keyword operator">=</span> <span class="string">"wss://ws.binaryws.com/websockets/v3?app_id="</span><span class="keyword operator">+</span>app_id
+    ws <span class="keyword operator">=</span> websocket.<span class="function call">WebSocketApp</span>(apiUrl, on_message<span class="keyword operator">=</span>on_message, on_open<span class="keyword operator">=</span>on_open)
+    ws.<span class="function call">run_forever</span>()</pre>
+</div>
+</div>
+</div>
+<div class="text-block">
+<h2 id="keep-alive" class="doc-sub-title">Keep alive</h2>
+<p>In this example you’ll see how to keep a connection alive when getting contract proposals via the
+Deriv API. This example keeps the connection alive by sending a ping every 30 seconds.</p>
+<div class="card">
+<div class="card-header">
+<p class="card-header-title">
+<select id="demo-keep-alive">
+<option value="javascript">JavaScript</option>
+<option value="csharp">C#</option>
+<option value="php">PHP</option>
+<option value="python">Python</option>
+</select>
+</p>
+<div class="copy-button">
+<img class="copy-button-image" src="./documentation_files/copy.svg" width="16" height="16" alt="copy code icon"> Copy
+</div>
+</div>
+<div class="language-demos">
+<pre data-keep-alive="javascript" class="rainbow" style="display: block;"><span class="comment">/*
+ * This is an example of using JavaScript with NodeJS to create a proposal subscription and prevent it from timing out.  
+ * A ping will be sent via websocket to the server every 30 seconds. 
+ * This approach can be used for all subscriptions to prevent timeout.
+ * To run this example using NodeJS
+ * - Ensure you have NodeJs installed (https://nodejs.org/).
+ * - Save this script to a directory on your computer as `proposal_keep_alive.js`.
+ * - Run `npm install ws` to install the websocket library.
+ * - Edit the example and change the app_id and the API token. 
+ * - Then run `node proposal_keep_alive.js`.
+ * 
+ * The api token should be from the same account that the contract is to be purchased for.
+ */</span>
+<span class="keyword">const</span> WebSocket <span class="keyword operator">=</span> <span class="function call">require</span>(<span class="string">'ws'</span>);
+
+<span class="comment">// You can register for an app_id here https://developers.deriv.com/docs/app-registration/.</span>
+<span class="keyword">const</span> app_id <span class="keyword operator">=</span> <span class="constant numeric">1089</span>; <span class="comment">// Replace with your app_id.</span>
+<span class="keyword">const</span> ws <span class="keyword operator">=</span> <span class="keyword">new</span> <span class="function call">WebSocket</span>(<span class="string">'wss://ws.binaryws.com/websockets/v3?app_id='</span> <span class="keyword operator">+</span> app_id);
+
+ws.onopen <span class="keyword operator">=</span> <span class="storage function">function</span> (evt) {
+    ws.<span class="function call">send</span>(JSON.<span class="function call">stringify</span>({
+        <span class="string">"proposal"</span>: <span class="constant numeric">1</span>,
+        <span class="string">"subscribe"</span>: <span class="constant numeric">1</span>,
+        <span class="string">"amount"</span>: <span class="constant numeric">10</span>,
+        <span class="string">"basis"</span>: <span class="string">"payout"</span>,
+        <span class="string">"contract_type"</span>: <span class="string">"CALL"</span>,
+        <span class="string">"currency"</span>: <span class="string">"USD"</span>,
+        <span class="string">"duration"</span>: <span class="constant numeric">1</span>,
+        <span class="string">"duration_unit"</span>: <span class="string">"m"</span>,
+        <span class="string">"symbol"</span>: <span class="string">"R_100"</span>,
+        <span class="string">"barrier"</span>: <span class="string">"+0.1"</span>
+    }));
+    <span class="comment">/*
+    * Send a ping ever 30 seconds to keep the connection alive, needs to use the same 
+    * websocket connection as the one you want to maintain.
+    */</span>
+    <span class="function call">setInterval</span>(ping, <span class="constant numeric">30000</span>);
+};
+ws.onmessage <span class="keyword operator">=</span> <span class="storage function">function</span> (msg) {
+    <span class="keyword">var</span> data <span class="keyword operator">=</span> JSON.<span class="function call">parse</span>(msg.data);
+    <span class="comment">// console.log('Response: %o', data); // Uncomment this to see full response data. </span>
+    <span class="keyword">if</span> (data.error <span class="keyword operator">!</span><span class="keyword operator">=</span><span class="keyword operator">=</span> undefined) {
+        console.<span class="function call">log</span>(<span class="string">"Error: %s "</span>, data.error.message);
+        ws.<span class="function call">close</span>();
+    } <span class="keyword">else</span> <span class="keyword">if</span> (data.msg_type <span class="keyword operator">=</span><span class="keyword operator">=</span> <span class="string">'proposal'</span>) { 
+        console.<span class="function call">log</span>(<span class="string">"Details: %s"</span>, data.proposal.longcode);
+        console.<span class="function call">log</span>(<span class="string">"Ask Price: %s"</span>, data.proposal.display_value);
+        console.<span class="function call">log</span>(<span class="string">"Payout: %s"</span>, data.proposal.payout);
+        console.<span class="function call">log</span>(<span class="string">"Spot: %s"</span>, data.proposal.spot);
+    } <span class="keyword">else</span> <span class="keyword">if</span> (data.msg_type <span class="keyword operator">=</span><span class="keyword operator">=</span> <span class="string">'ping'</span>) {
+        console.<span class="function call">log</span>(<span class="string">"ping"</span>);
+    }
+};
+<span class="storage function">function</span> <span class="entity name function">ping</span>() { ws.<span class="function call">send</span>(JSON.<span class="function call">stringify</span>({ <span class="string">"ping"</span>: <span class="constant numeric">1</span> })) }</pre>
+<pre data-keep-alive="csharp" class="rainbow" style="display: none;">using System;
+using System.Text;
+using System.Threading.Tasks;
+using System.Net.WebSockets;
+using System.Threading;
+using System.Net;
+using Newtonsoft.Json.Linq;
+<span class="comment">/*
+/*
+ * This is an example of using C# to create a proposal subscription and prevent it from timing out.  
+ * A ping will be sent via websocket to the server every 30 seconds. 
+ * This approach can be used for all subscriptions to prevent timeout.  
+ * The example was originally written in dotnet version 5.0.  
+ * It uses the Newtonsoft Json.net Library https://www.newtonsoft.com/json.
+ * This can be run on Windows/linux or Mac.
+ *  
+ * To run this example 
+ * - Ensure you have dotnet SDK installed https://dotnet.microsoft.com/download/dotnet. 
+ * - Run `dotnet new console --output proposal_keep_alive` in a directory on your computer.
+ * - Then run `dotnet add proposal_keep_alive package Newtonsoft.Json`.
+ * - Change to the new proposal_keep_alive directory and edit the `Program.cs` file, paste in the contents of this script and save.
+ * - Run `dotnet run --project proposal_keep_alive` in the parent directory.
+ */</span>
+namespace DerivWSDemo
+{
+    <span class="keyword">class</span> DerivWS
+    {
+        <span class="keyword">private</span> ClientWebSocket ws <span class="keyword operator">=</span> <span class="keyword">new</span> <span class="function call">ClientWebSocket</span>();
+        <span class="comment">// You can register for an app_id here https://developers.deriv.com/docs/app-registration/.        </span>
+        <span class="keyword">private</span> <span class="keyword">string</span> app_id <span class="keyword operator">=</span> <span class="string">"1089"</span>; <span class="comment">// Change this to yor app_id.</span>
+        <span class="keyword">private</span> <span class="keyword">string</span> websocket_url <span class="keyword operator">=</span> <span class="string">"wss://ws.binaryws.com/websockets/v3?app_id="</span>;
+        <span class="keyword">private</span> <span class="keyword">bool</span> connected <span class="keyword operator">=</span> <span class="constant language">false</span>;
+
+        <span class="keyword">public</span> async Task <span class="function call">SendRequest</span>(<span class="keyword">string</span> data)
+        {
+            <span class="keyword">while</span> (<span class="keyword">this</span>.ws.State <span class="keyword operator">=</span><span class="keyword operator">=</span> WebSocketState.Connecting) { };
+            <span class="keyword">if</span> (<span class="keyword">this</span>.ws.State <span class="keyword operator">!</span><span class="keyword operator">=</span> WebSocketState.Open)
+            {
+                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="function call">Exception</span>(<span class="string">"Connection is not open."</span>);
+            }
+            <span class="keyword">if</span> (<span class="keyword operator">!</span><span class="keyword">this</span>.connected) <span class="comment">// Only start the ping once connected and only run the timer once. </span>
+            {
+                <span class="keyword">this</span>.connected <span class="keyword operator">=</span> <span class="constant language">true</span>;
+                <span class="function call">sendPing</span>();
+            }
+            <span class="keyword">var</span> reqAsBytes <span class="keyword operator">=</span> Encoding.UTF8.<span class="function call">GetBytes</span>(data);
+            <span class="keyword">var</span> ticksRequest <span class="keyword operator">=</span> <span class="keyword">new</span> ArraySegment<span class="keyword operator">&lt;</span>byte<span class="keyword operator">&gt;</span>(reqAsBytes);
+            await <span class="keyword">this</span>.ws.<span class="function call">SendAsync</span>(ticksRequest,
+                WebSocketMessageType.Text,
+                <span class="constant language">true</span>,
+                CancellationToken.None);
+            Console.<span class="function call">WriteLine</span>(<span class="string">"The request has been sent: "</span>);
+            Console.<span class="function call">WriteLine</span>(data);
+            Console.<span class="function call">WriteLine</span>(<span class="string">"\r\n \r\n"</span>);
+        }
+        <span class="keyword">private</span> async <span class="keyword">void</span> <span class="function call">sendPing</span>()
+        {
+            <span class="keyword">while</span> (<span class="constant language">true</span>){
+
+                <span class="keyword">this</span>.<span class="function call">SendRequest</span>(<span class="string">"{<span class="constant character escape">\"</span>ping<span class="constant character escape">\"</span> :1}"</span>).<span class="function call">Wait</span>();
+                await Task.<span class="function call">Delay</span>(<span class="constant numeric">30000</span>); <span class="comment">// Delay the loop for 30 seconds.</span>
+            }
+        }
+        <span class="keyword">public</span> async Task <span class="function call">StartListen</span>()
+        {
+            WebSocketReceiveResult result;
+            <span class="keyword">while</span> (<span class="keyword">this</span>.ws.State <span class="keyword operator">=</span><span class="keyword operator">=</span> WebSocketState.Open)
+            {
+                <span class="keyword">var</span> buffer <span class="keyword operator">=</span> <span class="keyword">new</span> ArraySegment<span class="keyword operator">&lt;</span>byte<span class="keyword operator">&gt;</span>(<span class="keyword">new</span> byte[<span class="constant numeric">1024</span>]);
+                <span class="keyword">do</span>
+                {
+                    result <span class="keyword operator">=</span> await <span class="keyword">this</span>.ws.<span class="function call">ReceiveAsync</span>(<span class="keyword">new</span> ArraySegment<span class="keyword operator">&lt;</span>byte<span class="keyword operator">&gt;</span>(buffer.<span class="keyword">Array</span>), CancellationToken.None);
+                    <span class="keyword">if</span> (result.MessageType <span class="keyword operator">=</span><span class="keyword operator">=</span> WebSocketMessageType.Close)
+                    {
+                        Console.<span class="function call">WriteLine</span>(<span class="string">"Connection Closed!"</span>);
+                        <span class="keyword">break</span>;
+                    }
+                    <span class="keyword">else</span>
+                    {
+                        <span class="keyword">var</span> str <span class="keyword operator">=</span> Encoding.UTF8.<span class="function call">GetString</span>(buffer.<span class="keyword">Array</span>, <span class="constant numeric">0</span>, result.Count);
+                        <span class="comment">// Console.WriteLine(str); // Uncomment to see full JSON response.</span>
+                        JObject resultObject <span class="keyword operator">=</span> JObject.<span class="function call">Parse</span>(str);
+                        <span class="keyword">if</span> ((resultObject[<span class="string">"error"</span>] <span class="keyword operator">!</span><span class="keyword operator">=</span> <span class="constant language">null</span>))
+                        {
+                            Console.<span class="function call">WriteLine</span>(resultObject[<span class="string">"error"</span>][<span class="string">"code"</span>]);
+                            Console.<span class="function call">WriteLine</span>(resultObject[<span class="string">"error"</span>][<span class="string">"message"</span>]);
+                        }
+                        <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">string</span>.<span class="function call">Equals</span>((<span class="keyword">string</span>)resultObject[<span class="string">"msg_type"</span>], <span class="string">"proposal"</span>))
+                        {
+                            Console.<span class="function call">WriteLine</span>(<span class="string">"Details: {0}"</span>, resultObject[<span class="string">"proposal"</span>][<span class="string">"longcode"</span>]);
+                            Console.<span class="function call">WriteLine</span>(<span class="string">"Ask Price: {0}"</span>, resultObject[<span class="string">"proposal"</span>][<span class="string">"display_value"</span>]);
+                            Console.<span class="function call">WriteLine</span>(<span class="string">"Payout: {0}"</span>, resultObject[<span class="string">"proposal"</span>][<span class="string">"payout"</span>]);
+                        }
+                    }
+                } <span class="keyword">while</span> (<span class="keyword operator">!</span>result.EndOfMessage);
+            }
+        }
+
+        <span class="keyword">public</span> async Task <span class="function call">Connect</span>()
+        {
+            Uri uri <span class="keyword operator">=</span> <span class="keyword">new</span> <span class="function call">Uri</span>(websocket_url <span class="keyword operator">+</span> app_id);
+            Console.<span class="function call">WriteLine</span>(<span class="string">"Prepare to connect to: "</span> <span class="keyword operator">+</span> uri.<span class="function call">ToString</span>());
+            Console.<span class="function call">WriteLine</span>(<span class="string">"\r\n"</span>);
+            <span class="comment">// WebProxy proxyObject = new WebProxy("http://tardis:1080",true); // These 2 lines allow proxying set the proxy url as needed.</span>
+            <span class="comment">// ws.Options.Proxy = proxyObject;</span>
+            ServicePointManager.SecurityProtocol <span class="keyword operator">=</span> SecurityProtocolType.Tls12 <span class="keyword operator">|</span> SecurityProtocolType.Tls11;
+            await ws.<span class="function call">ConnectAsync</span>(uri, CancellationToken.None);
+            Console.<span class="function call">WriteLine</span>(<span class="string">"The connection is established!"</span>);
+            Console.<span class="function call">WriteLine</span>(<span class="string">"\r\n"</span>);
+        }
+
+        <span class="keyword">static</span> <span class="keyword">void</span> <span class="function call">Main</span>(<span class="keyword">string</span>[] args)
+        {
+            <span class="keyword">string</span> data <span class="keyword operator">=</span> <span class="string">"{ <span class="constant character escape">\"</span>proposal<span class="constant character escape">\"</span>: 1, <span class="constant character escape">\"</span>amount<span class="constant character escape">\"</span>: 100, <span class="constant character escape">\"</span>barrier<span class="constant character escape">\"</span>: <span class="constant character escape">\"</span>+0.1<span class="constant character escape">\"</span>, <span class="constant character escape">\"</span>basis<span class="constant character escape">\"</span>: <span class="constant character escape">\"</span>payout<span class="constant character escape">\"</span>, <span class="constant character escape">\"</span>contract_type<span class="constant character escape">\"</span>: <span class="constant character escape">\"</span>CALL<span class="constant character escape">\"</span>, <span class="constant character escape">\"</span>currency<span class="constant character escape">\"</span>: <span class="constant character escape">\"</span>USD<span class="constant character escape">\"</span>, <span class="constant character escape">\"</span>duration<span class="constant character escape">\"</span>: 60, <span class="constant character escape">\"</span>duration_unit<span class="constant character escape">\"</span>: <span class="constant character escape">\"</span>s<span class="constant character escape">\"</span>, <span class="constant character escape">\"</span>symbol<span class="constant character escape">\"</span>: <span class="constant character escape">\"</span>R_100<span class="constant character escape">\"</span> , <span class="constant character escape">\"</span>subscribe<span class="constant character escape">\"</span> : 1}"</span>;
+            <span class="keyword">var</span> bws <span class="keyword operator">=</span> <span class="keyword">new</span> <span class="function call">DerivWS</span>();
+            bws.<span class="function call">Connect</span>().<span class="function call">Wait</span>();
+            bws.<span class="function call">SendRequest</span>(data).<span class="function call">Wait</span>();
+            bws.<span class="function call">StartListen</span>().<span class="function call">GetAwaiter</span>();
+            Console.<span class="function call">ReadLine</span>();
+        }
+    }
+}</pre>
+<pre data-keep-alive="php" class="rainbow" style="display: none;"><span class="keyword operator">&lt;</span>?php
+<span class="comment">/*
+ * This is an example of using PHP to create a proposal subscription and prevent it from timing out.  
+ * A ping will be sent via websocket to the server every 30 seconds. 
+ * This approach can be used for all subscriptions to prevent timeout.  
+ * The example uses the ratchetphp/Pawl library.  
+ * To run this example 
+ * - Save it to a new directory as `proposal_keep_alive.php`.
+ * - In the new directory download and install composer as explained here https://getcomposer.org/download/.
+ * - Run `php composer.phar require ratchet/pawl`.
+ * - Edit the example and change the app_id and the API token. 
+ * - Then run `php proposal_keep_alive.php`.
+ */</span>
+
+require __DIR__ . <span class="string">'/vendor/autoload.php'</span>;
+
+<span class="comment">// You can register for an app_id here https://developers.deriv.com/docs/app-registration/.</span>
+$my_app_id <span class="keyword operator">=</span> <span class="constant numeric">1089</span>; <span class="comment">// Put your app_id here. </span>
+$loop <span class="keyword operator">=</span> \React\EventLoop\Factory::<span class="function call">create</span>();
+$Connector <span class="keyword operator">=</span> <span class="keyword">new</span> React\Socket\<span class="function call">Connector</span>($loop, <span class="keyword">array</span>(
+    <span class="string">'timeout'</span> <span class="keyword operator">=</span><span class="keyword operator">&gt;</span> <span class="constant numeric">10</span>,
+));
+$connector <span class="keyword operator">=</span> <span class="keyword">new</span> \Ratchet\Client\<span class="function call">Connector</span>($loop, $Connector);
+
+$<span class="function call">connector</span>(<span class="string">'wss://ws.binaryws.com/websockets/v3?app_id='</span>.$my_app_id)
+    <span class="keyword operator">-</span><span class="keyword operator">&gt;</span><span class="keyword">then</span>(<span class="keyword">function</span>(\Ratchet\Client\WebSocket $conn) use ($loop) {
+        $conn<span class="keyword operator">-</span><span class="keyword operator">&gt;</span><span class="function call">on</span>(<span class="string">'message'</span>, <span class="keyword">function</span>(\Ratchet\RFC6455\Messaging\MessageInterface $msg) use ($conn) {
+            $msg_php <span class="keyword operator">=</span> <span class="function call">json_decode</span>($msg, <span class="constant numeric">1</span>); 
+            <span class="comment">// echo '&gt; '.$msg."\n"; // Uncomment to see entire JSON response.</span>
+            <span class="keyword">if</span> (<span class="function call">isset</span>($msg_php[<span class="string">"error"</span>])) { 
+                <span class="keyword">echo</span> $msg_php[<span class="string">"error"</span>][<span class="string">"message"</span>]<span class="keyword dot">.</span><span class="string">"\n"</span>;
+                $conn<span class="keyword operator">-</span><span class="keyword operator">&gt;</span><span class="function call">close</span>();
+            }<span class="keyword">else</span> <span class="keyword">if</span> (<span class="function call">isset</span>($msg_php[<span class="string">"proposal"</span>])) {
+                <span class="keyword">echo</span> $msg_php[<span class="string">'proposal'</span>][<span class="string">'ask_price'</span>]<span class="keyword dot">.</span><span class="string">"\n"</span>;    
+            }<span class="keyword">else</span> {
+                <span class="keyword">echo</span> (<span class="string">"received "</span>. $msg_php[<span class="string">'msg_type'</span>]<span class="keyword dot">.</span><span class="string">"\n"</span>);
+            }
+        });
+
+        <span class="comment">// Sends a ping request every 30 seconds, needs to use the same connection `$conn` as the subscription. </span>
+        $loop<span class="keyword operator">-</span><span class="keyword operator">&gt;</span><span class="function call">addPeriodicTimer</span>(<span class="constant numeric">30</span>, <span class="storage function">function</span> () use ($conn) {
+            $conn<span class="keyword operator">-</span><span class="keyword operator">&gt;</span><span class="function call">send</span>(<span class="string">'{ "ping": 1}'</span>);
+            <span class="keyword">echo</span> <span class="string">"Ping Sent\n"</span>;
+        });
+        <span class="comment">/*
+         * Since we do not need to be authorized to get proposal response there is no need to send 
+         * an Authorization token however when not Authorized the the available contracts is limited by 
+         * the country the request is sent from.  
+         */</span>
+        $conn<span class="keyword operator">-</span><span class="keyword operator">&gt;</span><span class="function call">send</span>(<span class="string">'{ "proposal": 1, "amount": 100, "barrier": "+0.1", "basis": "payout", "contract_type": "CALL", "currency": "USD", "duration": 60, "duration_unit": "s", "symbol": "R_100" , "subscribe":1}'</span>);
+    }, <span class="keyword">function</span>(\Exception $e) use ($loop) {
+        <span class="keyword">echo</span> <span class="string">"Could not connect: {$e-&gt;getMessage()}\n"</span>;
+        $loop<span class="keyword operator">-</span><span class="keyword operator">&gt;</span><span class="function call">stop</span>();
+    });
+$loop<span class="keyword operator">-</span><span class="keyword operator">&gt;</span><span class="function call">run</span>();</pre>
+<pre data-keep-alive="python" class="rainbow" style="display: none;"><span class="comment"># This is an example of using Python to get a contract proposal  and keep the connection alive via the Deriv/Binary API.</span>
+<span class="comment"># Link is kept alive by sending a ping every 30 seconds.</span>
+<span class="comment"># The example uses the websockets library.</span>
+<span class="comment"># Note that the websockets library is more sophisticated than the websocket library used in the other examples. </span>
+<span class="comment"># This is required so that we can get access to asyncio loop.  </span>
+<span class="comment"># To run this example</span>
+<span class="comment"># - Ensure you have Python installed https://www.python.org/.</span>
+<span class="comment"># - Copy and save this as a file to a new directory as `proposal_keep_alive.py`.</span>
+<span class="comment"># - Run `pip install websockets`.</span>
+<span class="comment"># - Edit the example and change the app_id and the API token.</span>
+<span class="comment"># - Then run `python proposal_keep_alive.py`.</span>
+<span class="comment"># Note that on some OS's the python command will be python3 and pip will be pip3.</span>
+
+<span class="keyword">import</span> websockets
+<span class="keyword">import</span> json
+<span class="keyword">import</span> asyncio
+
+<span class="comment"># You can register for an app_id here https://developers.deriv.com/docs/app-registration/.</span>
+app_id <span class="keyword operator">=</span> <span class="string">'1089'</span>  <span class="comment"># Replace with your app_id.</span>
+
+async <span class="keyword">def</span> <span class="function call">connect</span>():
+    uri <span class="keyword operator">=</span> <span class="string">"wss://ws.binaryws.com/websockets/v3?app_id="</span><span class="keyword operator">+</span>app_id
+
+    async with websockets.<span class="function call">connect</span>(uri) <span class="keyword">as</span> websocket:
+        
+        loop.<span class="function call">create_task</span>(<span class="function call">ping</span>(websocket))
+
+        json_data <span class="keyword operator">=</span> json.<span class="function call">dumps</span>({<span class="string">"proposal"</span>: <span class="constant numeric">1</span>,
+       <span class="string">"amount"</span>: <span class="constant numeric">100</span>, <span class="string">"barrier"</span>: <span class="string">"+0.1"</span>, <span class="string">"basis"</span>: <span class="string">"payout"</span>, <span class="string">"contract_type"</span>: <span class="string">"CALL"</span>, <span class="string">"currency"</span>: <span class="string">"USD"</span>, <span class="string">"duration"</span>: <span class="constant numeric">60</span>, <span class="string">"duration_unit"</span>: <span class="string">"s"</span>, <span class="string">"symbol"</span>: <span class="string">"R_100"</span> , <span class="string">"subscribe"</span>:<span class="constant numeric">1</span>})
+        await websocket.<span class="function call">send</span>(json_data)
+
+        async <span class="keyword">for</span> message in websocket: 
+                data <span class="keyword operator">=</span> json.<span class="function call">loads</span>(message)
+                <span class="comment"># print('Data: %s' % message) # Uncomment this line to see all response data.</span>
+                <span class="keyword">if</span> <span class="string">'error'</span> in data.<span class="function call">keys</span>():
+                    <span class="keyword">print</span>(<span class="string">'Error Happened: %s'</span> % message)
+                elif data[<span class="string">"msg_type"</span>] <span class="keyword operator">=</span><span class="keyword operator">=</span> <span class="string">'proposal'</span>:
+                    <span class="keyword">print</span> (<span class="string">"Contract : %s "</span> % data[<span class="string">'proposal'</span>][<span class="string">'longcode'</span>]);    
+                    <span class="keyword">print</span> (<span class="string">"Price : %s "</span> % data[<span class="string">'proposal'</span>][<span class="string">'display_value'</span>]);    
+                    <span class="keyword">print</span> (<span class="string">"Payout : %s "</span> % data[<span class="string">'proposal'</span>][<span class="string">'payout'</span>]);    
+                    <span class="keyword">print</span> (<span class="string">"Spot: %s "</span> % data[<span class="string">'proposal'</span>][<span class="string">'spot'</span>]);
+
+async <span class="keyword">def</span> <span class="function call">ping</span>(ws):
+    json_data <span class="keyword operator">=</span> json.<span class="function call">dumps</span>({<span class="string">"ping"</span>: <span class="constant numeric">1</span>})
+    <span class="keyword">while</span> <span class="constant numeric">1</span>:
+        await ws.<span class="function call">send</span>(json_data)
+        await asyncio.<span class="function call">sleep</span>(<span class="constant numeric">30</span>)
+
+loop <span class="keyword operator">=</span> asyncio.<span class="function call">get_event_loop</span>()
+loop.<span class="function call">create_task</span>(<span class="function call">connect</span>())
+loop.<span class="function call">run_forever</span>()</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer>
+<div class="footer-container">© 2021 Deriv | All rights reserved</div>
+</footer>
+<script src="./documentation_files/code.js"></script>
+<script src="./documentation_files/deriv.js"></script>
+<script defer="" src="./documentation_files/beacon.min.js" data-cf-beacon="{&quot;rayId&quot;:&quot;6ab74dc8bfd4e8fb&quot;,&quot;token&quot;:&quot;b8c77e8f1aee414384a36f1394cc29f7&quot;,&quot;version&quot;:&quot;2021.10.0&quot;,&quot;si&quot;:100}"></script>
+
+
+</body></html>
