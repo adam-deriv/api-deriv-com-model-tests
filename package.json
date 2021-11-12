@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "test": "cypress open",
+    "test": "cypress run",
     "cypress": "cypress run",
     "cypress:open": "cypress open",
     "cypress:chrome": "cypress open --browser chrome"

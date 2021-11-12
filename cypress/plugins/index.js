@@ -15,6 +15,11 @@
 /**
  * @type {Cypress.PluginConfig}
  */
+
+ const {
+  addMatchImageSnapshotPlugin,
+} = require('cypress-image-snapshot/plugin');
+
  const { lighthouse, pa11y, prepareAudit } = require("cypress-audit");
 
  module.exports = (on, config) => {
@@ -26,4 +31,6 @@
     lighthouse: lighthouse(), // calling the function is important
     pa11y: pa11y(), // calling the function is important
   });
+
+  addMatchImageSnapshotPlugin(on, config);
 };
