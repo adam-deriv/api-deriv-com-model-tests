@@ -11,6 +11,8 @@
   "devDependencies": {
     "@xstate/test": "^0.4.2",
     "cypress": "9.0.0",
+    "cypress-audit": "^1.1.0",
+    "cypress-image-snapshot": "^4.0.1",
     "xstate": "^4.16.2"
   }
 }

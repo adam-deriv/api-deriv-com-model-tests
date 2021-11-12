@@ -90,11 +90,9 @@ context("Deriv API From Home", () => {
   });
 });
 
-context("Deriv API from Playground", () => {
-  const testPlans = testModel('playground').getSimplePathPlans();
-  testPlans.forEach((plan) => {
-    describe(plan.description, () => {
-      plan.paths.forEach(itTests('https://api.deriv.com/playground'));
-    });
+context("Perormance and Accessibility", () => {
+  it("should pass the audits", function () {
+    cy.lighthouse();
+    cy.pa11y();
   });
-});
+})
