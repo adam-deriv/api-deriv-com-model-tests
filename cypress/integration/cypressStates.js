@@ -16,7 +16,16 @@ const cypressStates = {
   },
   documetnation: () => {
     cy.contains(/Quickstart to Deriv API/i);
-  }
+  },
+  faq: () => {
+    cy.get('.doc-main-title').contains(/FAQ/i);
+  },
+  jsonSchemas: () => {
+    cy.get('.doc-main-title').contains(/JSON Schemas/i);
+  },
+  bugBountry: () => {
+    cy.get('.doc-main-title').contains(/Bug Bounty/i);
+  },
 };
 const cypressEvents = {
   CLICK_PLAYGROUND: function () {
@@ -33,6 +42,15 @@ const cypressEvents = {
   },
   CLICK_DOCUMENTATION: function () {
     cy.contains(/documentation/i).click();
-  }
+  },
+  CLICK_FAQ: function () {
+    cy.get("#sidebar > #faq").contains(/faq/i).click();
+  },
+  CLICK_JSON_SCHEMAS: function () {
+    cy.get("#sidebar > #json-schemas").contains(/json schemas/i).click();
+  },
+  CLICK_BUG_BOUNTY: function () {
+    cy.get("#sidebar > #bug-bounty").contains(/bug bounty/i).click();
+  },
 };
 export const testsModel = (initialState) => createTestModel(derivApiMachine(initialState), cypressStates, cypressEvents);

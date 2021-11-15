@@ -18,6 +18,15 @@ export const derivApiMachine = (initial = 'home') => ({
     home: {
       on: { CLICK_PLAYGROUND: "playground", CLICK_DOCUMENTATION: "documentation" },
     },
+    faq: {
+      on: { ...documentationNavigationEvents },
+    },
+    jsonSchemas: {
+      on: { ...documentationNavigationEvents },
+    },
+    bugBounty: {
+      on: { ...documentationNavigationEvents },
+    },
   },
 });
 const documentationNavigationEvents = {
@@ -26,4 +35,7 @@ const documentationNavigationEvents = {
   CLICK_DOCUMENTATION: "documentation",
   CLICK_PLAYGROUND: "playground",
   CLICK_HOME: "home",
+  CLICK_FAQ: "faq",
+  CLICK_JSON_SCHEMAS: "jsonSchemas",
+  CLICK_BUG_BOUNTY: "bugBounty",
 };

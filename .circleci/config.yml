@@ -1,12 +1,12 @@
-version: 2
-jobs:
+# to use orbs, must use version >= 2.1
+version: 2.1
+orbs:
+  # import Cypress orb by specifying an exact version x.y.z
+  # or the latest version 1.x.x using "@1" syntax
+  cypress: cypress-io/cypress@1
+workflows:
   build:
-    docker:
-    - image: testim/docker-cli
-    steps:
-      - run: mkdir -p /tmp/testim/
-      - run: testim --token $PROJECT --project $PROJECT --grid $GRID --report-file /tmp/testim/results.xml
-      - store_artifacts:
-          path: /tmp/circleci-test-results
-      - store_test_results:
-          path: /tmp/circleci-test-results
+    jobs:
+      # "cypress" is the name of the imported orb
+      # "run" is the name of the job defined in Cypress orb
+      - cypress/run
