@@ -26,6 +26,9 @@ const cypressStates = {
   bugBountry: () => {
     cy.get('.doc-main-title').contains(/Bug Bounty/i);
   },
+  guide: () => {
+    cy.get('.doc-main-title').contains(/API guide/i);
+  },
 };
 const cypressEvents = {
   CLICK_PLAYGROUND: function () {
@@ -51,6 +54,9 @@ const cypressEvents = {
   },
   CLICK_BUG_BOUNTY: function () {
     cy.get("#sidebar > #bug-bounty").contains(/bug bounty/i).click();
+  },
+  CLICK_GUIDE: function () {
+    cy.get("#sidebar > #api-guide").contains(/guide/i).click();
   },
 };
 export const testsModel = (initialState) => createTestModel(derivApiMachine(initialState), cypressStates, cypressEvents);
